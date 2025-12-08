@@ -65,4 +65,8 @@ class AuthenticationService {
       options: Options(extra: {"requiresToken": false}),
     );
   }
+
+  Future<Response> signOut() async {
+    return await _dio.post("/signOut");
+  }
 }

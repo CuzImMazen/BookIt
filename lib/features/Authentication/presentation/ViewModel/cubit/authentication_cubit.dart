@@ -60,4 +60,16 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       emit(AuthenticationSignInFailure(errorMessage ?? "Unknown error"));
     }
   }
+
+  Future<void> signOut() async {
+    emit(const AuthenticationLoading());
+
+    final errorMessage = await _authRepo.signOut();
+
+    if (errorMessage == null) {
+      emit(const AuthenticationSignOutSuccess());
+    } else {
+      emit(AuthenticationSignOutFailure(errorMessage));
+    }
+  }
 }

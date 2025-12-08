@@ -34,3 +34,12 @@ final class AuthenticationSignInFailure extends AuthenticationState {
   final String message;
   const AuthenticationSignInFailure(this.message);
 }
+
+final class AuthenticationSignOutSuccess extends AuthenticationState {
+  const AuthenticationSignOutSuccess();
+}
+
+final class AuthenticationSignOutFailure extends AuthenticationState {
+  final String message;
+  const AuthenticationSignOutFailure(this.message);
+}
