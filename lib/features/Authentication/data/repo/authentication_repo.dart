@@ -102,4 +102,18 @@ class AuthenticationRepo {
       return (null, "Network or server error: $e");
     }
   }
+
+  Future<String?> signOut() async {
+    try {
+      final response = await _authService.signOut();
+      if (response.statusCode == 200) {
+        return null;
+      }
+      return "Unexpected error: ${response.statusCode}";
+    } on DioException catch (e) {
+      return "Unexpected error: ${e.response?.statusCode ?? "Network or server error"}";
+    } catch (e) {
+      return "Network or server error: $e";
+    }
+  }
 }
