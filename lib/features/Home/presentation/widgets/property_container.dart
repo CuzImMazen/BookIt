@@ -1,41 +1,15 @@
-import 'package:book_it/features/Home/data/models/location_model.dart';
-import 'package:book_it/features/Home/data/models/owner_model.dart';
 import 'package:book_it/features/Home/data/models/property_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class PropertyContainer extends StatelessWidget {
-  const PropertyContainer({super.key});
-  final PropertyModel testProperty = const PropertyModel(
-    name: "Fancy House",
-    description:
-        "A stunning, modern mansion featuring elegant architecture and spacious interiors. Large windows fill the home with natural light, highlighting premium finishes and high-end amenities. Surrounded by beautifully landscaped gardens, it offers luxury, comfort, and style in every detail.",
-    price: "250.000",
-    location: Location(city: "AlShalaan", governorate: "Damascus"),
-    availability: true,
-    mainImage: "assets/images/house5.avif",
-    numberOfKitchens: 2,
-    numberOfBaths: 2,
-    numberOfBedrooms: 4,
-    area: 500,
-    owner: OwnerModel(
-      image: "assets/images/profile.jpg",
-      firstName: "Mazen",
-      lastName: "Alrefai",
-      phone: "0947476626",
-    ),
-    images: [
-      "assets/images/house5.avif",
-      "assets/images/inside1.jpg",
-      "assets/images/inside2.jpg",
-      "assets/images/inside3.jpg",
-    ],
-  );
+  const PropertyContainer({super.key, required this.property});
+  final PropertyModel property;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.push("/propertydetail", extra: testProperty);
+        context.push("/propertydetail", extra: property);
       },
       child: Container(
         decoration: BoxDecoration(
@@ -51,7 +25,7 @@ class PropertyContainer extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   image: DecorationImage(
-                    image: AssetImage(testProperty.mainImage),
+                    image: AssetImage(property.mainImage),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -65,7 +39,7 @@ class PropertyContainer extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 6.0),
                     child: Text(
-                      testProperty.name,
+                      property.name,
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w800,
@@ -74,7 +48,7 @@ class PropertyContainer extends StatelessWidget {
                   ),
                   Spacer(),
                   Text(
-                    "Sp.${testProperty.price}/Night",
+                    "Sp.${property.price}/Night",
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
                   ),
                 ],
@@ -85,7 +59,7 @@ class PropertyContainer extends StatelessWidget {
                 children: [
                   Icon(Icons.location_on, color: Color(0xff0987b6)),
                   Text(
-                    "${testProperty.location.governorate}, ${testProperty.location.city}",
+                    "${property.location.governorate}, ${property.location.city}",
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
@@ -93,7 +67,7 @@ class PropertyContainer extends StatelessWidget {
                     ),
                   ),
                   Spacer(),
-                  testProperty.availability
+                  property.availability
                       ? Text(
                           "Available",
                           style: TextStyle(

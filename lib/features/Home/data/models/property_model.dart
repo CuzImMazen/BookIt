@@ -3,6 +3,7 @@ import 'package:book_it/features/Home/data/models/owner_model.dart';
 
 class PropertyModel {
   final String name;
+  final String category;
   final String description;
   final String price;
   final Location location;
@@ -18,6 +19,7 @@ class PropertyModel {
   const PropertyModel({
     this.images,
     required this.name,
+    required this.category,
     required this.description,
     required this.price,
     required this.location,
