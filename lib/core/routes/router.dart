@@ -4,6 +4,8 @@ import 'package:book_it/features/Authentication/presentation/views/first_signup_
 import 'package:book_it/features/Authentication/presentation/views/second_signup_view.dart';
 import 'package:book_it/features/Authentication/presentation/views/signin_view_.dart';
 import 'package:book_it/features/Home/data/models/property_model.dart';
+import 'package:book_it/features/Home/presentation/views/filter_view.dart';
+import 'package:book_it/features/Home/presentation/views/home_view.dart';
 import 'package:book_it/features/Home/presentation/views/property_detail_view.dart';
 import 'package:book_it/features/Introduction/presentation/views/welcome_view.dart';
 import 'package:book_it/features/Layout/presentation/views/layout_view.dart';
@@ -13,7 +15,7 @@ import 'package:go_router/go_router.dart';
 final GoRouter router = GoRouter(
   initialLocation: '/',
   routes: [
-    GoRoute(path: '/', builder: (context, state) => const SplashView()),
+    GoRoute(path: '/', builder: (context, state) => const LayoutView()),
     GoRoute(
       path: '/welcome',
       pageBuilder: (context, state) => fadeTransitionPage(const WelcomeView()),
@@ -38,5 +40,6 @@ final GoRouter router = GoRouter(
         return PropertyDetailView(property: property);
       },
     ),
+    GoRoute(path: "/filter", builder: (context, state) => const FilterView()),
   ],
 );

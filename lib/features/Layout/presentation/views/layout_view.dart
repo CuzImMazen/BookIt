@@ -1,3 +1,4 @@
+import 'package:book_it/features/Home/presentation/viewModel/cubit/filter_cubit.dart';
 import 'package:book_it/features/Layout/presentation/ViewModel/cubit/navigation_bar_cubit.dart';
 import 'package:book_it/features/Layout/presentation/widgets/layout_view_page.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +9,13 @@ class LayoutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NavigationBarCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<NavigationBarCubit>(
+          create: (context) => NavigationBarCubit(),
+        ),
+        BlocProvider<FilterCubit>(create: (context) => FilterCubit()),
+      ],
       child: const LayoutViewPage(),
     );
   }

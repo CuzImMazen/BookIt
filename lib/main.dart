@@ -1,14 +1,20 @@
 import 'package:book_it/core/style/colors.dart';
 import 'package:book_it/features/Authentication/data/repo/authentication_repo.dart';
 import 'package:book_it/features/Authentication/presentation/ViewModel/cubit/authentication_cubit.dart';
+import 'package:book_it/features/Home/presentation/viewModel/cubit/filter_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:book_it/core/routes/router.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(
-    BlocProvider(
-      create: (context) => AuthenticationCubit(AuthenticationRepo()),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AuthenticationCubit(AuthenticationRepo()),
+        ),
+        BlocProvider(create: (context) => FilterCubit()),
+      ],
       child: MaterialApp.router(
         routerConfig: router,
         debugShowCheckedModeBanner: false,
