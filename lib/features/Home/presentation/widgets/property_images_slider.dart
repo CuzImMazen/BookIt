@@ -30,16 +30,7 @@ class _PropertyImagesState extends State<PropertyImages> {
             controller: _imageController,
             itemCount: widget.images.length,
             itemBuilder: (context, index) {
-              // return Container(
-              //   decoration: BoxDecoration(
-              //     borderRadius: BorderRadius.circular(15),
-              //     image: DecorationImage(
-              //       image: AssetImage(widget.images[index]),
-              //       fit: BoxFit.cover,
-              //     ),
-              //   ),
-              // );
-              return Image.asset(
+              return Image.network(
                 widget.images[index],
                 width: double.infinity,
                 height: double.infinity,

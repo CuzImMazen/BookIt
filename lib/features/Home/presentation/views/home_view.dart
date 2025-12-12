@@ -1,48 +1,27 @@
-import 'package:book_it/features/Authentication/data/models/user_model.dart';
-import 'package:book_it/features/Home/data/models/property_features_model.dart';
+import 'package:book_it/core/style/colors.dart';
 
-import 'package:book_it/features/Home/data/models/property_model.dart';
+import 'package:book_it/features/Home/presentation/viewModel/cubit/property_cubit.dart';
 import 'package:book_it/features/Home/presentation/widgets/category_selector.dart';
 import 'package:book_it/features/Home/presentation/widgets/filter_button_row.dart';
 import 'package:book_it/features/Home/presentation/widgets/property_container.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
-  final PropertyModel testProperty = const PropertyModel(
-    name: "Fancy House",
-    category: "house",
-    description:
-        "A stunning, modern mansion featuring elegant architecture and spacious interiors. Large windows fill the home with natural light, highlighting premium finishes and high-end amenities. Surrounded by beautifully landscaped gardens, it offers luxury, comfort, and style in every detail.",
-    price: "250.000",
-    governorate: "Damascus",
-    city: "Al-Shalaan",
-    availability: true,
-    mainImage: "assets/images/house5.avif",
-    features: PropertyFeaturesModel(
-      numberOfKitchens: 2,
-      numberOfBathrooms: 2,
-      numberOfBedrooms: 3,
-      area: 100,
-    ),
-    owner: UserModel(
-      id: 1,
-      profileImage: "assets/images/profile.jpg",
-      firstName: "Mazen",
-      lastName: "Alrefai",
-      phoneNumber: "0947476626",
-      birthDate: "1995-01-01",
-      role: "Owner",
-      idImage: "assets/images/id.jpg",
-    ),
-    images: [
-      "assets/images/house5.avif",
-      "assets/images/inside1.jpg",
-      "assets/images/inside2.jpg",
-      "assets/images/inside3.jpg",
-    ],
-  );
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<PropertyCubit>().getProperties(const {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -56,13 +35,38 @@ class HomeView extends StatelessWidget {
           SizedBox(height: 20),
 
           Expanded(
-            child: ListView.separated(
-              padding: EdgeInsets.zero,
-              itemCount: 5,
-              itemBuilder: (context, index) {
-                return PropertyContainer(property: testProperty);
+            child: BlocBuilder<PropertyCubit, PropertyState>(
+              builder: (context, state) {
+                if (state is PropertyInitial) {
+                  return const Center(
+                    child: CircularProgressIndicator(color: kPrimaryColor),
+                  );
+                }
+                if (state is PropertyLoading) {
+                  return const Center(
+                    child: CircularProgressIndicator(color: kPrimaryColor),
+                  );
+                } else if (state is PropertyError) {
+                  return Center(child: Text(state.message));
+                } else if (state is PropertyLoaded) {
+                  if (state.properties.isEmpty) {
+                    return const Center(child: Text("No properties found"));
+                  }
+                  return ListView.separated(
+                    padding: EdgeInsets.zero,
+                    itemCount: state.properties.length,
+                    itemBuilder: (context, index) {
+                      return PropertyContainer(
+                        property: state.properties[index],
+                      );
+                    },
+                    separatorBuilder: (context, index) =>
+                        const SizedBox(height: 10),
+                  );
+                } else {
+                  return const Center(child: Text("Error"));
+                }
               },
-              separatorBuilder: (context, index) => const SizedBox(height: 10),
             ),
           ),
         ],

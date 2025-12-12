@@ -15,7 +15,7 @@ class PropertyFeaturesModel {
       numberOfKitchens: json['kitchens'] as int,
       numberOfBathrooms: json['bathrooms'] as int,
       numberOfBedrooms: json['rooms'] as int,
-      area: json['area'] as double,
+      area: (json['area'] as num).toDouble(),
     );
   }
 }

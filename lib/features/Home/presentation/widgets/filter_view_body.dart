@@ -1,6 +1,7 @@
 import 'package:book_it/core/utils/helpers.dart';
 import 'package:book_it/features/Home/data/models/filter_model.dart';
 import 'package:book_it/features/Home/presentation/viewModel/cubit/filter_cubit.dart';
+import 'package:book_it/features/Home/presentation/viewModel/cubit/property_cubit.dart';
 import 'package:book_it/features/Home/presentation/widgets/apply_filters_button.dart';
 import 'package:book_it/features/Home/presentation/widgets/drop_down_button_row.dart';
 import 'package:book_it/features/Home/presentation/widgets/feature_counter_row.dart';
@@ -189,8 +190,10 @@ class FilterViewBody extends StatelessWidget {
 
               GestureDetector(
                 onTap: () {
-                  final filter = context.read<FilterCubit>().state;
-                  print(filter.toQueryParameters());
+                  final filterState = context.read<FilterCubit>().state;
+                  final queryParams = filterState.toQueryParameters();
+                  context.read<PropertyCubit>().getProperties(queryParams);
+                  context.pop();
                 },
                 child: const ApplyFiltersButton(),
               ),
