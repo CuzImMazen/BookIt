@@ -1,4 +1,5 @@
 import 'package:book_it/features/Home/presentation/viewModel/cubit/filter_cubit.dart';
+import 'package:book_it/features/Home/presentation/viewModel/cubit/property_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -51,7 +52,7 @@ List<String> getCities(String? governorate) {
     case "Damascus":
       return const [
         "Al-Qadam",
-        "Mezzeh",
+        "Mazzeh",
         "Al-Salihiyah",
         "Baramkeh",
         "Al-Zahra",
@@ -81,7 +82,7 @@ List<String> getCities(String? governorate) {
     case "Alraqqa":
       return const ["Al-Thawrah", "Al-Mansurah", "Al-Resafa", "Al-Hurriya"];
     case "AlQuneitra":
-      return const ["Fiq", "Buqata", "Kafr Shams", "Jubata al-Khashab"];
+      return const ["Fiq", "Buqata", "Kafr Shams"];
     default:
       return const [];
   }
@@ -99,7 +100,7 @@ List<String> getGovernorates() {
     "Latakia",
     "Tartus",
     "Sweidah",
-    "Dar'a",
+    "Dara'a",
     "Hassakeh",
     "Deir Alzoor",
     "Alraqqa",
@@ -131,6 +132,7 @@ Future<dynamic> showDiscardFiltersDialog(BuildContext context) {
         TextButton(
           onPressed: () {
             context.read<FilterCubit>().clearFilters();
+            context.read<PropertyCubit>().getProperties(const {});
             context.pop();
             context.pop();
           },

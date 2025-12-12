@@ -12,11 +12,11 @@ class OwnerRow extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 15,
-            backgroundImage: AssetImage("assets/images/profile.jpg"),
+            backgroundImage: NetworkImage(propertyOwner.profileImage),
           ),
           SizedBox(width: 10),
           Text(
-            "Mazen Alrefai",
+            "${propertyOwner.firstName} ${propertyOwner.lastName}",
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
           Spacer(),

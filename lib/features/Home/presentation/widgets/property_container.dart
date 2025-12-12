@@ -25,7 +25,7 @@ class PropertyContainer extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   image: DecorationImage(
-                    image: AssetImage(property.mainImage),
+                    image: NetworkImage(property.mainImage),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -48,7 +48,7 @@ class PropertyContainer extends StatelessWidget {
                   ),
                   Spacer(),
                   Text(
-                    "Sp.${property.price}/Night",
+                    "\$${property.price}/Night",
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
                   ),
                 ],

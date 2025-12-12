@@ -20,7 +20,7 @@ class DetailPageLocationRow extends StatelessWidget {
         ),
         Spacer(),
         Text(
-          "SP.${property.price}/Night",
+          "\$${property.price}/Night",
           style: TextStyle(
             color: Colors.amber.shade800,
             fontSize: 14,
