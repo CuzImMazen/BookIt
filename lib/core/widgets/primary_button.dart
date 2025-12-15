@@ -1,10 +1,16 @@
 import 'package:book_it/core/style/colors.dart';
 import 'package:flutter/material.dart';
 
-class AuthPrimaryButton extends StatelessWidget {
-  const AuthPrimaryButton({super.key, required this.text, required this.onTap});
+class PrimaryButton extends StatelessWidget {
+  const PrimaryButton({
+    super.key,
+    required this.text,
+    required this.onTap,
+    this.wdith = double.infinity,
+  });
   final String text;
   final void Function()? onTap;
+  final double wdith;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -12,7 +18,7 @@ class AuthPrimaryButton extends StatelessWidget {
         onTap: onTap,
         child: Container(
           height: 60,
-          width: double.infinity,
+          width: wdith,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25),
             color: kPrimaryColor.withAlpha(200),

@@ -1,15 +1,64 @@
+import 'package:book_it/core/style/colors.dart';
 import 'package:book_it/features/Home/presentation/viewModel/cubit/filter_cubit.dart';
 import 'package:book_it/features/Home/presentation/viewModel/cubit/property_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-Future<String?> pickDate({required BuildContext context}) async {
+Future<String?> pickBirthDate({required BuildContext context}) async {
   final pickedDate = await showDatePicker(
     context: context,
     initialDate: DateTime(2000),
     firstDate: DateTime(1940),
     lastDate: DateTime(2020),
+  );
+
+  if (pickedDate != null) {
+    return "${pickedDate.year}-${pickedDate.month}-${pickedDate.day}";
+  }
+  return null;
+}
+
+Future<String?> pickStartDate({required BuildContext context}) async {
+  final pickedDate = await showDatePicker(
+    context: context,
+    initialDate: DateTime.now(),
+    firstDate: DateTime.now(),
+    lastDate: DateTime(
+      DateTime.now().year + 1,
+      DateTime.now().month,
+      DateTime.now().day,
+    ),
+  );
+
+  if (pickedDate != null) {
+    return "${pickedDate.year}-${pickedDate.month}-${pickedDate.day}";
+  }
+  return null;
+}
+
+Future<String?> pickEndDate({
+  required BuildContext context,
+  required String startDate,
+}) async {
+  if (startDate.isEmpty || startDate == "null") {
+    showSnackBar(
+      context: context,
+      message: "Please enter your start date first",
+      color: kPrimaryColor.withAlpha(200),
+    );
+    return null;
+  }
+  final DateTime start = DateTime.parse(startDate);
+  final pickedDate = await showDatePicker(
+    context: context,
+    initialDate: start,
+    firstDate: start,
+    lastDate: DateTime(
+      DateTime.now().year + 1,
+      DateTime.now().month,
+      DateTime.now().day,
+    ),
   );
 
   if (pickedDate != null) {

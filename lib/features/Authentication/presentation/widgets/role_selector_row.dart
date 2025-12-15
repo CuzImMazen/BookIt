@@ -1,4 +1,4 @@
-import 'package:book_it/features/Authentication/presentation/widgets/auth_label_text.dart';
+import 'package:book_it/core/widgets/label_text.dart';
 import 'package:book_it/features/Authentication/presentation/widgets/role_selector.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +9,7 @@ class RoleSelectorRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        AuthLabelText(text: "Choose Role:"),
+        LabelText(text: "Choose Role:"),
         Spacer(),
         RoleSelector(setRole: setRole),
       ],

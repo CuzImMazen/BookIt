@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SecondaryAuthText extends StatelessWidget {
-  const SecondaryAuthText({super.key, required this.text});
+class SecondaryText extends StatelessWidget {
+  const SecondaryText({super.key, required this.text});
   final String text;
   @override
   Widget build(BuildContext context) {
@@ -9,7 +9,7 @@ class SecondaryAuthText extends StatelessWidget {
       text,
       style: TextStyle(
         color: Colors.grey,
-        fontSize: 15,
+        fontSize: 16,
         fontWeight: FontWeight.w500,
       ),
     );

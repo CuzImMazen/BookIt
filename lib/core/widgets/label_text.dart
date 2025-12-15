@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AuthLabelText extends StatelessWidget {
-  const AuthLabelText({super.key, required this.text});
+class LabelText extends StatelessWidget {
+  const LabelText({super.key, required this.text});
   final String text;
   @override
   Widget build(BuildContext context) {
