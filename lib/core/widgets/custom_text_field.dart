@@ -2,15 +2,15 @@ import 'package:book_it/core/style/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class AuthTextField extends StatefulWidget {
-  const AuthTextField({
+class CustomTextField extends StatefulWidget {
+  const CustomTextField({
     super.key,
     required this.hintText,
     required this.prefixIcon,
     this.isPassword = false,
     required this.validator,
     required this.controller,
-    this.isPhone = false,
+    this.isNumber = false,
     this.readOnly = false,
     this.onTap,
   });
@@ -20,14 +20,14 @@ class AuthTextField extends StatefulWidget {
   final bool isPassword;
   final String? Function(String?)? validator;
   final TextEditingController controller;
-  final bool isPhone;
+  final bool isNumber;
   final bool readOnly;
   final void Function()? onTap;
   @override
-  State<AuthTextField> createState() => _AuthTextFieldState();
+  State<CustomTextField> createState() => _AuthTextFieldState();
 }
 
-class _AuthTextFieldState extends State<AuthTextField> {
+class _AuthTextFieldState extends State<CustomTextField> {
   final FocusNode _focusNode = FocusNode();
   bool _obscureText = true;
 
@@ -72,8 +72,8 @@ class _AuthTextFieldState extends State<AuthTextField> {
       controller: widget.controller,
       onTap: widget.onTap,
       readOnly: widget.readOnly,
-      keyboardType: widget.isPhone ? TextInputType.phone : null,
-      inputFormatters: widget.isPhone
+      keyboardType: widget.isNumber ? TextInputType.phone : null,
+      inputFormatters: widget.isNumber
           ? [FilteringTextInputFormatter.digitsOnly]
           : [],
       validator: widget.validator,

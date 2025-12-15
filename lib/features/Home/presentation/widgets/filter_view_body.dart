@@ -1,10 +1,10 @@
 import 'dart:developer';
 
 import 'package:book_it/core/utils/helpers.dart';
+import 'package:book_it/core/widgets/primary_button.dart';
 import 'package:book_it/features/Home/data/models/filter_model.dart';
 import 'package:book_it/features/Home/presentation/viewModel/cubit/filter_cubit.dart';
 import 'package:book_it/features/Home/presentation/viewModel/cubit/property_cubit.dart';
-import 'package:book_it/features/Home/presentation/widgets/apply_filters_button.dart';
 import 'package:book_it/features/Home/presentation/widgets/drop_down_button_row.dart';
 import 'package:book_it/features/Home/presentation/widgets/feature_counter_row.dart';
 import 'package:book_it/features/Home/presentation/widgets/only_available_properties_row.dart';
@@ -190,7 +190,9 @@ class FilterViewBody extends StatelessWidget {
 
               const SizedBox(height: 10),
 
-              GestureDetector(
+              PrimaryButton(
+                wdith: 220,
+                text: "Apply Filter",
                 onTap: () {
                   final filterState = context.read<FilterCubit>().state;
                   final queryParams = filterState.toQueryParameters();
@@ -198,9 +200,7 @@ class FilterViewBody extends StatelessWidget {
                   log(queryParams.toString());
                   context.pop();
                 },
-                child: const ApplyFiltersButton(),
               ),
-
               const SizedBox(height: 10),
             ],
           ),
@@ -209,3 +209,9 @@ class FilterViewBody extends StatelessWidget {
     );
   }
 }
+
+
+ 
+ // onTap: () {
+              
+                // },

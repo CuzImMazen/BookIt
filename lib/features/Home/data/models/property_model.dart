@@ -2,6 +2,7 @@ import 'package:book_it/features/Authentication/data/models/user_model.dart';
 import 'package:book_it/features/Home/data/models/property_features_model.dart';
 
 class PropertyModel {
+  final int id;
   final String name;
   final String category;
   final String description;
@@ -16,6 +17,7 @@ class PropertyModel {
 
   const PropertyModel({
     this.images,
+    required this.id,
     required this.name,
     required this.category,
     required this.description,
@@ -30,6 +32,7 @@ class PropertyModel {
 
   factory PropertyModel.fromJson(Map<String, dynamic> json) {
     return PropertyModel(
+      id: json['id'] as int,
       name: json['name'] as String,
       category: json['category'] as String,
       description: json['description'] as String,

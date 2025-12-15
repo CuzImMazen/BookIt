@@ -53,3 +53,39 @@ String? dateOfBirthValidator(String? value) {
   }
   return null;
 }
+
+String? cardNumberValidator(String? value) {
+  value = value?.trim();
+  if (value == null || value.isEmpty) {
+    return "Please enter your card number";
+  }
+  if (value.length < 12) {
+    return "Card number must be at least 12 characters";
+  }
+  return null;
+}
+
+String? addressValidator(String? value) {
+  value = value?.trim();
+  if (value == null || value.isEmpty) {
+    return "Please enter your billing address";
+  }
+  return null;
+}
+
+String? startDateValidator(String? value) {
+  value = value?.trim();
+  if (value == null || value.isEmpty) {
+    return "Please enter your start date";
+  }
+  return null;
+}
+
+String? endDateValidator(String? value, String? startDate) {
+  value = value?.trim();
+  if (value == null || value.isEmpty) {
+    return "Please enter your end date";
+  }
+
+  return null;
+}

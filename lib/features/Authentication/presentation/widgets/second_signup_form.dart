@@ -4,12 +4,12 @@ import 'package:book_it/core/utils/validators.dart';
 import 'package:book_it/core/widgets/back_button_row.dart';
 import 'package:book_it/features/Authentication/data/models/first_signup_data.dart';
 import 'package:book_it/features/Authentication/presentation/ViewModel/cubit/authentication_cubit.dart';
-import 'package:book_it/features/Authentication/presentation/widgets/auth_label_text.dart';
-import 'package:book_it/features/Authentication/presentation/widgets/auth_primary_button.dart';
-import 'package:book_it/features/Authentication/presentation/widgets/auth_text_field.dart';
-import 'package:book_it/features/Authentication/presentation/widgets/primary_auth_text.dart';
-import 'package:book_it/features/Authentication/presentation/widgets/row_selector_row.dart';
-import 'package:book_it/features/Authentication/presentation/widgets/secondary_auth_text.dart';
+import 'package:book_it/core/widgets/label_text.dart';
+import 'package:book_it/core/widgets/primary_button.dart';
+import 'package:book_it/core/widgets/custom_text_field.dart';
+import 'package:book_it/core/widgets/primary_text.dart';
+import 'package:book_it/features/Authentication/presentation/widgets/role_selector_row.dart';
+import 'package:book_it/core/widgets/secondary_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -85,27 +85,27 @@ class _SecondSignupFormState extends State<SecondSignupForm> {
                     },
                   ),
                   SizedBox(height: 30),
-                  PrimaryAuthText(text: "Finish Your Account!"),
+                  PrimaryText(text: "Finish Your Account!"),
                   SizedBox(height: 10),
-                  SecondaryAuthText(
+                  SecondaryText(
                     text:
                         "Welcome aboard! Your account is almost done.  Discover homes, list properties, and get started today.",
                   ),
                   SizedBox(height: 60),
-                  AuthLabelText(text: "Phone Number"),
+                  LabelText(text: "Phone Number"),
                   SizedBox(height: 10),
-                  AuthTextField(
+                  CustomTextField(
                     hintText: " Enter your phone number",
                     prefixIcon: Icons.phone,
 
                     validator: phoneValidator,
                     controller: _phoneController,
-                    isPhone: true,
+                    isNumber: true,
                   ),
                   const SizedBox(height: 20),
-                  AuthLabelText(text: "Password"),
+                  LabelText(text: "Password"),
                   SizedBox(height: 10),
-                  AuthTextField(
+                  CustomTextField(
                     hintText: "Enter your Password",
                     prefixIcon: Icons.lock,
                     isPassword: true,
@@ -113,9 +113,9 @@ class _SecondSignupFormState extends State<SecondSignupForm> {
                     controller: _passwordController,
                   ),
                   const SizedBox(height: 20),
-                  AuthLabelText(text: "Confirm Password"),
+                  LabelText(text: "Confirm Password"),
                   SizedBox(height: 10),
-                  AuthTextField(
+                  CustomTextField(
                     hintText: "Confirm your Password",
                     prefixIcon: Icons.lock,
                     isPassword: true,
@@ -137,7 +137,7 @@ class _SecondSignupFormState extends State<SecondSignupForm> {
                       child: CircularProgressIndicator(color: kPrimaryColor),
                     )
                   else
-                    AuthPrimaryButton(
+                    PrimaryButton(
                       text: "SignUp",
                       onTap: () {
                         FocusScope.of(context).unfocus();

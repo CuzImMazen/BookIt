@@ -1,3 +1,4 @@
+import 'package:book_it/features/Home/data/models/confirm_book_data.dart';
 import 'package:book_it/features/Home/data/models/property_model.dart';
 import 'package:book_it/features/Home/presentation/widgets/book_button.dart';
 import 'package:book_it/features/Home/presentation/widgets/detail_page_location_row.dart';
@@ -7,6 +8,7 @@ import 'package:book_it/features/Home/presentation/widgets/property_description.
 import 'package:book_it/features/Home/presentation/widgets/property_images_slider.dart';
 import 'package:book_it/features/Home/presentation/widgets/property_owner_row.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class DetailViewBody extends StatelessWidget {
   const DetailViewBody({super.key, required this.property});
@@ -47,7 +49,18 @@ class DetailViewBody extends StatelessWidget {
                 SizedBox(height: 12),
                 OwnerRow(propertyOwner: property.owner),
                 SizedBox(height: 25),
-                BookButton(),
+                GestureDetector(
+                  onTap: () {
+                    context.push(
+                      "/confirm_book",
+                      extra: ConfirmBookData(
+                        propertyId: property.id,
+                        price: property.price,
+                      ),
+                    );
+                  },
+                  child: BookButton(),
+                ),
                 SizedBox(height: 25),
               ],
             ),

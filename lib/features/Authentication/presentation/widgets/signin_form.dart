@@ -3,12 +3,12 @@ import 'package:book_it/core/utils/helpers.dart';
 import 'package:book_it/core/utils/validators.dart';
 import 'package:book_it/core/widgets/back_button_row.dart';
 import 'package:book_it/features/Authentication/presentation/ViewModel/cubit/authentication_cubit.dart';
-import 'package:book_it/features/Authentication/presentation/widgets/auth_label_text.dart';
-import 'package:book_it/features/Authentication/presentation/widgets/auth_primary_button.dart';
-import 'package:book_it/features/Authentication/presentation/widgets/auth_text_field.dart';
+import 'package:book_it/core/widgets/label_text.dart';
+import 'package:book_it/core/widgets/primary_button.dart';
+import 'package:book_it/core/widgets/custom_text_field.dart';
 import 'package:book_it/features/Authentication/presentation/widgets/dont_have_account_row.dart';
-import 'package:book_it/features/Authentication/presentation/widgets/primary_auth_text.dart';
-import 'package:book_it/features/Authentication/presentation/widgets/secondary_auth_text.dart';
+import 'package:book_it/core/widgets/primary_text.dart';
+import 'package:book_it/core/widgets/secondary_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -75,27 +75,27 @@ class _SignInFormState extends State<SignInForm> {
                     },
                   ),
                   SizedBox(height: 50),
-                  PrimaryAuthText(text: "Welcome Back!"),
+                  PrimaryText(text: "Welcome Back!"),
                   SizedBox(height: 10),
-                  SecondaryAuthText(
+                  SecondaryText(
                     text:
                         "Log in to your account to explore your dream to live the best life.",
                   ),
 
                   SizedBox(height: 80),
-                  AuthLabelText(text: "Phone Number"),
+                  LabelText(text: "Phone Number"),
                   SizedBox(height: 15),
-                  AuthTextField(
-                    isPhone: true,
+                  CustomTextField(
+                    isNumber: true,
                     controller: _phoneController,
                     validator: phoneValidator,
                     hintText: "Enter your phone number",
                     prefixIcon: Icons.phone,
                   ),
                   SizedBox(height: 20),
-                  AuthLabelText(text: "Password"),
+                  LabelText(text: "Password"),
                   SizedBox(height: 15),
-                  AuthTextField(
+                  CustomTextField(
                     controller: _passwordController,
                     validator: passwordValidator,
                     isPassword: true,
@@ -111,7 +111,7 @@ class _SignInFormState extends State<SignInForm> {
                   else
                     Column(
                       children: [
-                        AuthPrimaryButton(
+                        PrimaryButton(
                           text: "Sign In",
                           onTap: () {
                             if (_formKey.currentState!.validate()) {
