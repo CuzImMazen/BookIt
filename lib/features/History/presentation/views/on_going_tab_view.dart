@@ -1,4 +1,4 @@
-import 'package:book_it/features/History/presentation/widgets/on_going_books_container.dart';
+import 'package:book_it/features/History/presentation/widgets/bookings_container.dart';
 import 'package:flutter/material.dart';
 
 class OnGoingTabView extends StatelessWidget {
@@ -10,7 +10,7 @@ class OnGoingTabView extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10),
       child: ListView.separated(
         itemBuilder: (context, index) {
-          return OnGoingBooksContainer();
+          return BookingsContainer(status: "Active");
         },
         separatorBuilder: (context, index) => const SizedBox(height: 15),
         itemCount: 3,
