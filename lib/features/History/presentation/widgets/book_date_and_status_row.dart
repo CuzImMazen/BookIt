@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
 
 class BookDateAndStatusRow extends StatelessWidget {
-  const BookDateAndStatusRow({super.key});
+  const BookDateAndStatusRow({super.key, required this.status});
+  final String status;
 
   @override
   Widget build(BuildContext context) {
+    late final MaterialColor statusColor;
+    if (status == "Active") {
+      statusColor = Colors.green;
+    } else if (status == "Completed") {
+      statusColor = Colors.grey;
+    } else if (status == "Canceled") {
+      statusColor = Colors.red;
+    } else {
+      statusColor = Colors.grey;
+    }
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
@@ -21,7 +32,7 @@ class BookDateAndStatusRow extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Colors.green.withAlpha(100),
+              color: statusColor.withAlpha(100),
             ),
 
             child: Center(
@@ -31,11 +42,11 @@ class BookDateAndStatusRow extends StatelessWidget {
                   vertical: 6.0,
                 ),
                 child: Text(
-                  "Active",
+                  status,
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
-                    color: Colors.green,
+                    color: statusColor,
                   ),
                 ),
               ),

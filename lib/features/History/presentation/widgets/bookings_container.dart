@@ -2,9 +2,9 @@ import 'package:book_it/features/History/presentation/widgets/book_date_and_stat
 import 'package:book_it/features/History/presentation/widgets/title_and_buttons_row.dart';
 import 'package:flutter/material.dart';
 
-class OnGoingBooksContainer extends StatelessWidget {
-  const OnGoingBooksContainer({super.key});
-
+class BookingsContainer extends StatelessWidget {
+  const BookingsContainer({super.key, required this.status});
+  final String status;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -37,14 +37,14 @@ class OnGoingBooksContainer extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      TitleAndButtonsRow(),
+                      TitleAndButtonsRow(status: status),
 
                       SizedBox(
                         width: 185,
                         child: Text(
                           overflow: TextOverflow.ellipsis,
                           maxLines: 1,
-                          "Damascus, AlShalaannnn ",
+                          "Damascus, AlShalaan",
                           style: TextStyle(
                             color: Colors.grey,
                             fontWeight: FontWeight.w400,
@@ -57,7 +57,7 @@ class OnGoingBooksContainer extends StatelessWidget {
                         style: TextStyle(fontWeight: FontWeight.w600),
                       ),
                       SizedBox(height: 10),
-                      BookDateAndStatusRow(),
+                      BookDateAndStatusRow(status: status),
                     ],
                   ),
                 ),
