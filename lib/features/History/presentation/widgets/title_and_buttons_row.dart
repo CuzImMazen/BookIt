@@ -15,14 +15,14 @@ class TitleAndButtonsRow extends StatelessWidget {
               child: Text(
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
-                "Fancy House",
+                "House",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
               ),
             ),
             SizedBox(width: 8),
-            Icon(Icons.edit, color: kPrimaryColor.withAlpha(125)),
+            Icon(Icons.edit, color: kPrimaryColor.withAlpha(125), size: 22),
             SizedBox(width: 12),
-            Icon(Icons.cancel, color: Colors.red),
+            Icon(Icons.cancel, color: Colors.red, size: 22),
           ],
         ),
       );

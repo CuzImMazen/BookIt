@@ -1,5 +1,6 @@
 import 'package:book_it/features/History/presentation/widgets/book_date_and_status_row.dart';
 import 'package:book_it/features/History/presentation/widgets/title_and_buttons_row.dart';
+
 import 'package:flutter/material.dart';
 
 class BookingsContainer extends StatelessWidget {
@@ -8,7 +9,6 @@ class BookingsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 140,
       decoration: BoxDecoration(
         color: Colors.grey.withAlpha(20),
         borderRadius: BorderRadius.circular(12),
@@ -38,7 +38,6 @@ class BookingsContainer extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TitleAndButtonsRow(status: status),
-
                       SizedBox(
                         width: 185,
                         child: Text(
@@ -58,6 +57,7 @@ class BookingsContainer extends StatelessWidget {
                       ),
                       SizedBox(height: 10),
                       BookDateAndStatusRow(status: status),
+                      SizedBox(height: 10),
                     ],
                   ),
                 ),
