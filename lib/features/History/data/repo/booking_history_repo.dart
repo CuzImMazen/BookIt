@@ -59,4 +59,16 @@ class BookingHistoryRepo {
       return (<BookModel>[], "Failed to get canceled bookings: $e");
     }
   }
+
+  Future<(bool, String?)> cancelBooking(int id) async {
+    try {
+      final response = await _service.cancelBooking(id);
+      if (response.statusCode == 200) {
+        return (true, null);
+      }
+      return (false, "Failed to cancel booking");
+    } catch (e) {
+      return (false, "Failed to cancel booking ");
+    }
+  }
 }

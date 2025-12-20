@@ -33,4 +33,8 @@ class BookingHistoryService {
   Future<Response> getOnGoingBookings() async {
     return await _dio.get("/bookings/current/future");
   }
+
+  Future<Response> cancelBooking(int id) async {
+    return await _dio.delete("/booking/$id");
+  }
 }

@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:book_it/features/History/data/model/book_model.dart';
 import 'package:book_it/features/History/data/repo/booking_history_repo.dart';
 import 'package:book_it/features/History/presentation/ViewModel/cubit/booking_history_state.dart';
 
@@ -58,6 +59,43 @@ class BookingHistoryCubit extends Cubit<BookingHistoryState> {
         canceled: canceledResult.$1,
         isLoadingCanceled: false,
         errorCanceled: canceledResult.$2,
+      ),
+    );
+  }
+
+  Future<void> cancelBooking(BookModel booking) async {
+    emit(
+      state.copyWith(
+        ongoing: state.ongoing.where((b) => b.id != booking.id).toList(),
+        cancelingIds: {...state.cancelingIds, booking.id},
+        cancelError: null,
+      ),
+    );
+
+    final (success, error) = await repository.cancelBooking(booking.id);
+
+    if (!success) {
+      emit(
+        state.copyWith(
+          ongoing: [...state.ongoing, booking],
+          cancelingIds: state.cancelingIds
+              .where((id) => id != booking.id)
+              .toSet(),
+          cancelError: error,
+        ),
+      );
+      return;
+    }
+
+    emit(
+      state.copyWith(
+        canceled: [
+          booking.copyWith(status: 'Canceled'),
+          ...state.canceled,
+        ],
+        cancelingIds: state.cancelingIds
+            .where((id) => id != booking.id)
+            .toSet(),
       ),
     );
   }

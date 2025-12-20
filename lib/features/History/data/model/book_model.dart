@@ -22,4 +22,19 @@ class BookModel {
       property: PropertyModel.fromJson(json['property']),
     );
   }
+  BookModel copyWith({
+    String? status,
+    int? id,
+    String? startDate,
+    String? endDate,
+    PropertyModel? property,
+  }) {
+    return BookModel(
+      status: status ?? this.status,
+      id: id ?? this.id,
+      startDate: startDate ?? this.startDate,
+      endDate: endDate ?? this.endDate,
+      property: property ?? this.property,
+    );
+  }
 }
