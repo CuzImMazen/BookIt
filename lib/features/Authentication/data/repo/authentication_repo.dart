@@ -74,6 +74,9 @@ class AuthenticationRepo {
     } on DioException catch (e) {
       final status = e.response?.statusCode;
       final data = e.response?.data;
+      if (status == 403) {
+        return (null, "your account isnt approved yet");
+      }
       if (status == 404 || status == 401) {
         if (data is Map && data['message'] is String) {
           return (null, data['message'] as String);

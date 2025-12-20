@@ -29,7 +29,7 @@ class CanceledTabView extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10),
           child: ListView.separated(
             itemBuilder: (context, index) {
-              final booking = state.ongoing[index];
+              final booking = state.canceled[index];
               return BookingsContainer(book: booking);
             },
             separatorBuilder: (context, index) => const SizedBox(height: 15),
