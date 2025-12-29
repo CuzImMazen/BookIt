@@ -21,4 +21,26 @@ class OwnerPropertiesCubit extends Cubit<OwnerPropertiesState> {
       emit(OwnerPropertiesLoaded(properties));
     }
   }
+
+  Future<void> deleteProperty(int propertyId) async {
+    if (isClosed) return;
+
+    final currentState = state;
+    if (currentState is! OwnerPropertiesLoaded) return;
+
+    final updatedList = currentState.properties
+        .where((p) => p.id != propertyId)
+        .toList();
+
+    emit(OwnerPropertiesLoaded(updatedList));
+
+    final errorMessage = await _ownerRepo.deleteProperty(propertyId);
+
+    if (isClosed) return;
+
+    if (errorMessage != null) {
+      emit(OwnerPropertiesError(errorMessage));
+      emit(currentState);
+    }
+  }
 }

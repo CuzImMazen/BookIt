@@ -82,4 +82,33 @@ class OwnerPropertiesRepo {
       return "Failed to create property: $e";
     }
   }
+
+  Future<String?> deleteProperty(int propertyId) async {
+    try {
+      final response = await _ownerService.deleteProperty(propertyId);
+
+      if (response.statusCode != 200) {
+        return "Failed to delete property: ${response.statusCode}";
+      }
+
+      return null;
+    } on DioException catch (dioError) {
+      String message;
+
+      if (dioError.type == DioExceptionType.connectionTimeout ||
+          dioError.type == DioExceptionType.receiveTimeout) {
+        message = "Connection timeout. Please try again.";
+      } else if (dioError.type == DioExceptionType.badResponse) {
+        message =
+            dioError.response?.data['message'] ??
+            "Server error: ${dioError.response?.statusCode}";
+      } else {
+        message = "Unexpected error: ${dioError.message}";
+      }
+
+      return message;
+    } catch (e) {
+      return "Failed to delete property: $e";
+    }
+  }
 }

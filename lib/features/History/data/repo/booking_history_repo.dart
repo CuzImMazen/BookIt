@@ -46,9 +46,10 @@ class BookingHistoryRepo {
           .toList();
       return (bookings, null);
     } catch (e) {
+      print(e.toString());
       return (
         <BookModel>[],
-        "Failed to get past bookings please try again later",
+        "Failed to get past bookings please try again later ",
       );
     }
   }

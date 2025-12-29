@@ -39,15 +39,16 @@ class OwnerService {
       "rooms": rooms,
       "bathrooms": bathrooms,
       "kitchens": kitchens,
-      "is_available": true,
+      "is_available": 1,
 
-      "images": [
-        for (final image in images)
-          await MultipartFile.fromFile(
-            image.path,
-            filename: image.path.split('/').last,
-          ),
-      ],
+      "images[]": images
+          .map(
+            (image) => MultipartFile.fromFileSync(
+              image.path,
+              filename: image.path.split('/').last,
+            ),
+          )
+          .toList(),
     });
 
     return await _dio.post(
@@ -55,5 +56,9 @@ class OwnerService {
       data: formData,
       options: Options(contentType: "multipart/form-data"),
     );
+  }
+
+  Future<Response> deleteProperty(int id) async {
+    return await _dio.delete("/property/$id");
   }
 }

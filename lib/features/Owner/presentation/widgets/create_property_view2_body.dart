@@ -2,11 +2,16 @@
 
 import 'dart:io';
 
+import 'package:book_it/core/style/colors.dart';
+import 'package:book_it/core/utils/helpers.dart';
+import 'package:book_it/features/Home/presentation/viewModel/cubit/property_cubit.dart';
+import 'package:book_it/features/Owner/presentation/ViewModel/cubit/create_property_cubit.dart';
 import 'package:book_it/features/Owner/presentation/widgets/modern_text_field.dart';
 import 'package:book_it/features/Owner/presentation/widgets/room_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:book_it/core/widgets/primary_button.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class CreatePropertyView2Body extends StatefulWidget {
@@ -54,17 +59,31 @@ class _CreatePropertyView2BodyState extends State<CreatePropertyView2Body> {
 
   void _onSubmit() {
     if (_formKey.currentState!.validate()) {
-      debugPrint("PROPERTY CREATED: ${titleController.text}");
-      debugPrint("PROPERTY CREATED: ${descriptionController.text}");
-      debugPrint("PROPERTY CREATED: ${priceController.text}");
-      debugPrint("PROPERTY CREATED: ${areaController.text}");
-      debugPrint("PROPERTY CREATED: $bedrooms");
-      debugPrint("PROPERTY CREATED: $bathrooms");
-      debugPrint("PROPERTY CREATED: $kitchens");
-      debugPrint("PROPERTY CREATED: $category");
-      debugPrint("PROPERTY CREATED: $governorate");
-      debugPrint("PROPERTY CREATED: $city");
-      debugPrint("PROPERTY CREATED: ${images.length}");
+      // debugPrint("PROPERTY CREATED: title  ${titleController.text}");
+      // debugPrint("PROPERTY CREATED:  desc ${descriptionController.text}");
+      // debugPrint("PROPERTY CREATED:  price ${priceController.text}");
+      // debugPrint("PROPERTY CREATED: area ${areaController.text}");
+      // debugPrint("PROPERTY CREATED: rooms $bedrooms");
+      // debugPrint("PROPERTY CREATED: bathrooms $bathrooms");
+      // debugPrint("PROPERTY CREATED: kitchens $kitchens");
+      // debugPrint("PROPERTY CREATED: catgeory ${category.toLowerCase()}");
+      // debugPrint("PROPERTY CREATED: gevornate  $governorate");
+      // debugPrint("PROPERTY CREATED: city $city");
+      // debugPrint("PROPERTY CREATED: ${images.length}");
+
+      context.read<CreatePropertyCubit>().createProperty(
+        name: titleController.text,
+        description: descriptionController.text,
+        category: category.toLowerCase(),
+        governorate: governorate,
+        city: city,
+        pricePerDay: int.parse(priceController.text),
+        area: int.parse(areaController.text),
+        rooms: bedrooms,
+        bathrooms: bathrooms,
+        kitchens: kitchens,
+        images: images,
+      );
     } else {
       if (titleController.text.isEmpty || titleController.text.length > 20) {
         _scrollTo(_titleKey);
@@ -93,108 +112,135 @@ class _CreatePropertyView2BodyState extends State<CreatePropertyView2Body> {
   Widget build(BuildContext context) {
     final data = GoRouterState.of(context).extra as Map<String, dynamic>;
 
-    final List<File> images = data["images"];
-    final String category = data["category"];
-    final String governorate = data["governorate"];
-    final String city = data["city"];
+    return BlocConsumer<CreatePropertyCubit, CreatePropertyState>(
+      listener: (context, state) {
+        if (state is CreatePropertyError) {
+          showSnackBar(context: context, message: state.message);
+        }
 
-    return Column(
-      children: [
-        Expanded(
-          child: Form(
-            key: _formKey,
-            child: ListView(
-              controller: _scrollController,
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              children: [
-                _header("The Basics", "Keep the title short and catchy"),
-                ModernTextField(
-                  fieldKey: _titleKey,
-                  controller: titleController,
-                  hint: "e.g. Fancy Beach House",
-                  icon: Icons.title_rounded,
-                  maxLength: 20,
-                  validator: (v) {
-                    if (v == null || v.isEmpty) return "Title is required";
-                    if (v.length > 20) return "Maximum 20 characters";
-                    return null;
-                  },
-                ),
-                _header("Description", "Describe what guests will love"),
-                ModernTextField(
-                  fieldKey: _descriptionKey,
-                  controller: descriptionController,
-                  hint: "Tell us about the view, the neighborhood...",
-                  icon: Icons.notes_rounded,
-                  maxLines: 4,
-                  validator: (v) =>
-                      v == null || v.isEmpty ? "Description is required" : null,
-                ),
-                _header("Numbers", "Set your price and area"),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: ModernTextField(
-                        fieldKey: _priceKey,
-                        controller: priceController,
-                        hint: "Price",
-                        prefix: "\$ ",
-                        suffix: "/ night",
-                        keyboard: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.digitsOnly,
-                        ],
+        if (state is CreatePropertySuccess) {
+          if (!mounted) return;
+          context.read<PropertyCubit>().getProperties(const {});
+          showSnackBar(
+            duration: const Duration(seconds: 2),
+            context: context,
+            message: "Property created successfully",
+            color: Colors.green,
+          );
+          Navigator.popUntil(context, (route) {
+            return route.settings.name == 'myproperties';
+          });
+        }
+      },
+      builder: (context, state) {
+        if (state is CreatePropertyLoading) {
+          return const Center(
+            child: CircularProgressIndicator(color: kPrimaryColor),
+          );
+        } else {
+          return Column(
+            children: [
+              Expanded(
+                child: Form(
+                  key: _formKey,
+                  child: ListView(
+                    controller: _scrollController,
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
+                    children: [
+                      _header("The Basics", "Keep the title short and catchy"),
+                      ModernTextField(
+                        fieldKey: _titleKey,
+                        controller: titleController,
+                        hint: "e.g. Fancy Beach House",
+                        icon: Icons.title_rounded,
+                        maxLength: 20,
                         validator: (v) {
-                          if (v == null || v.isEmpty) return "Required";
-                          final n = int.tryParse(v);
-                          if (n == null || n < 25 || n > 250) {
-                            return "\$25 - \$250";
-                          }
+                          if (v == null || v.isEmpty)
+                            return "Title is required";
+                          if (v.length > 20) return "Maximum 20 characters";
                           return null;
                         },
                       ),
-                    ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: ModernTextField(
-                        fieldKey: _areaKey,
-                        controller: areaController,
-                        hint: "Area",
-                        suffix: " m²",
-                        keyboard: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.digitsOnly,
-                        ],
-                        validator: (v) {
-                          if (v == null || v.isEmpty) return "Required";
-                          final n = int.tryParse(v);
-                          if (n == null || n < 100 || n > 1000) {
-                            return "100-1000 m²";
-                          }
-                          return null;
-                        },
+                      _header("Description", "Describe what guests will love"),
+                      ModernTextField(
+                        fieldKey: _descriptionKey,
+                        controller: descriptionController,
+                        hint: "Tell us about the view, the neighborhood...",
+                        icon: Icons.notes_rounded,
+                        maxLines: 4,
+                        validator: (v) => v == null || v.isEmpty
+                            ? "Description is required"
+                            : null,
                       ),
-                    ),
-                  ],
-                ),
-                _header("Rooms", "How many of each?"),
-                RoomSelector(
-                  bedrooms: bedrooms,
-                  bathrooms: bathrooms,
-                  kitchens: kitchens,
-                  onBedroomsChanged: (v) => setState(() => bedrooms = v),
-                  onBathroomsChanged: (v) => setState(() => bathrooms = v),
-                  onKitchensChanged: (v) => setState(() => kitchens = v),
-                ),
+                      _header("Numbers", "Set your price and area"),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: ModernTextField(
+                              fieldKey: _priceKey,
+                              controller: priceController,
+                              hint: "Price",
+                              prefix: "\$ ",
+                              suffix: "/ night",
+                              keyboard: TextInputType.number,
+                              inputFormatters: [
+                                FilteringTextInputFormatter.digitsOnly,
+                              ],
+                              validator: (v) {
+                                if (v == null || v.isEmpty) return "Required";
+                                final n = int.tryParse(v);
+                                if (n == null || n < 25 || n > 250) {
+                                  return "\$25 - \$250";
+                                }
+                                return null;
+                              },
+                            ),
+                          ),
+                          const SizedBox(width: 16),
+                          Expanded(
+                            child: ModernTextField(
+                              fieldKey: _areaKey,
+                              controller: areaController,
+                              hint: "Area",
+                              suffix: " m²",
+                              keyboard: TextInputType.number,
+                              inputFormatters: [
+                                FilteringTextInputFormatter.digitsOnly,
+                              ],
+                              validator: (v) {
+                                if (v == null || v.isEmpty) return "Required";
+                                final n = int.tryParse(v);
+                                if (n == null || n < 100 || n > 1000) {
+                                  return "100-1000 m²";
+                                }
+                                return null;
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                      _header("Rooms", "How many of each?"),
+                      RoomSelector(
+                        bedrooms: bedrooms,
+                        bathrooms: bathrooms,
+                        kitchens: kitchens,
+                        onBedroomsChanged: (v) => setState(() => bedrooms = v),
+                        onBathroomsChanged: (v) =>
+                            setState(() => bathrooms = v),
+                        onKitchensChanged: (v) => setState(() => kitchens = v),
+                      ),
 
-                const SizedBox(height: 40),
-              ],
-            ),
-          ),
-        ),
-        _buildBottomBar(),
-      ],
+                      const SizedBox(height: 40),
+                    ],
+                  ),
+                ),
+              ),
+              _buildBottomBar(),
+            ],
+          );
+        }
+      },
     );
   }
 

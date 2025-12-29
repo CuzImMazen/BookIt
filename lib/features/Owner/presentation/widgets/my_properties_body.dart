@@ -1,4 +1,5 @@
 import 'package:book_it/core/style/colors.dart';
+import 'package:book_it/features/Home/presentation/viewModel/cubit/property_cubit.dart';
 import 'package:book_it/features/Home/presentation/widgets/property_container.dart';
 import 'package:book_it/features/Owner/presentation/ViewModel/cubit/owner_properties_cubit.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,10 @@ class MyPropertiesBody extends StatelessWidget {
           return Center(child: Text(state.message));
         }
         if (state is OwnerPropertiesLoaded) {
+          if (state.properties.isEmpty) {
+            return const Center(child: Text("You have no properties yet."));
+          }
+
           return Padding(
             padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 12),
             child: Column(
@@ -28,9 +33,19 @@ class MyPropertiesBody extends StatelessWidget {
                   child: ListView.builder(
                     itemCount: state.properties.length,
                     itemBuilder: (context, index) {
+                      final property = state.properties[index];
                       return PropertyContainer(
                         forOwner: true,
-                        property: state.properties[index],
+                        onDelete: () async {
+                          await context
+                              .read<OwnerPropertiesCubit>()
+                              .deleteProperty(property.id);
+
+                          await context.read<PropertyCubit>().getProperties(
+                            const {},
+                          );
+                        },
+                        property: property,
                       );
                     },
                   ),
