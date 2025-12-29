@@ -14,6 +14,7 @@ class BookingHistoryCubit extends Cubit<BookingHistoryState> {
     final results = await Future.wait([
       repository.getCurrentBookings(),
       repository.getFutureBookings(),
+
       repository.getPendingEditBookings(),
       repository.getPendingBookings(),
     ]);

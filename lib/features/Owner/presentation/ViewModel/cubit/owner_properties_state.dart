@@ -18,3 +18,13 @@ class OwnerPropertiesError extends OwnerPropertiesState {
 
   OwnerPropertiesError(this.message);
 }
+
+final class OwnerPropertyDeleting extends OwnerPropertiesState {
+  final int propertyId;
+  OwnerPropertyDeleting(this.propertyId);
+}
+
+final class OwnerPropertyDeleteError extends OwnerPropertiesState {
+  final String message;
+  OwnerPropertyDeleteError(this.message);
+}

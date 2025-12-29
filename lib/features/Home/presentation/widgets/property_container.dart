@@ -7,9 +7,11 @@ class PropertyContainer extends StatelessWidget {
     super.key,
     required this.property,
     required this.forOwner,
+    this.onDelete,
   });
   final PropertyModel property;
   final bool forOwner;
+  final VoidCallback? onDelete;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,7 +41,10 @@ class PropertyContainer extends StatelessWidget {
                     alignment: Alignment.topRight,
                     child: IconButton(
                       onPressed: () {
-                        showDeletePropertyDialog(context);
+                        showDeletePropertyDialog(
+                          context: context,
+                          onDelete: onDelete!,
+                        );
                       },
                       icon: Icon(Icons.delete, color: Colors.red, size: 30),
                     ),

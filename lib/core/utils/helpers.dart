@@ -302,7 +302,10 @@ Future<dynamic> showBookingSuccessDialog(BuildContext context) {
   );
 }
 
-Future<dynamic> showDeletePropertyDialog(BuildContext context) {
+Future<void> showDeletePropertyDialog({
+  required BuildContext context,
+  required VoidCallback onDelete,
+}) {
   return showDialog(
     context: context,
     builder: (context) {
@@ -328,10 +331,11 @@ Future<dynamic> showDeletePropertyDialog(BuildContext context) {
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
-              SizedBox(width: 15),
+              const SizedBox(width: 15),
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pop();
+                  context.pop(); // close dialog first
+                  onDelete();
                 },
                 child: const Text(
                   "Delete",
