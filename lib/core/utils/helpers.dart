@@ -213,9 +213,9 @@ Future<dynamic> showDiscardFiltersDialog(BuildContext parentContext) {
     context: parentContext,
     builder: (_) => AlertDialog(
       actionsAlignment: MainAxisAlignment.center,
-      title: const Text("Are you sure?"),
-      content: const Text(
-        "You will lose all your filters",
+      title: Text(parentContext.home.discardDialog_title),
+      content: Text(
+        parentContext.home.discardDialog_content,
         style: TextStyle(fontSize: 16),
       ),
       actions: [
@@ -223,8 +223,8 @@ Future<dynamic> showDiscardFiltersDialog(BuildContext parentContext) {
           onPressed: () {
             parentContext.pop();
           },
-          child: const Text(
-            "Cancel",
+          child: Text(
+            parentContext.home.discardDialog_cancel,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
           ),
         ),
@@ -236,8 +236,8 @@ Future<dynamic> showDiscardFiltersDialog(BuildContext parentContext) {
             parentContext.pop(); // close dialog
             parentContext.pop(); // go back
           },
-          child: const Text(
-            "Yes",
+          child: Text(
+            parentContext.home.discardDialog_yes,
             style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.red,
@@ -279,7 +279,7 @@ Future<dynamic> showBookingSuccessDialog(BuildContext context) {
     context: context,
     builder: (context) => AlertDialog(
       title: Text(
-        "Success",
+        context.book.booking_success_title,
         style: TextStyle(
           color: Colors.green,
           fontSize: 20,
@@ -287,7 +287,7 @@ Future<dynamic> showBookingSuccessDialog(BuildContext context) {
         ),
       ),
       content: Text(
-        " your Booking request has been sent Successfully",
+        context.book.booking_success_message,
         style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
       ),
       actions: [
@@ -295,7 +295,7 @@ Future<dynamic> showBookingSuccessDialog(BuildContext context) {
           child: TextButton(
             onPressed: () => context.go("/main"),
             child: Text(
-              "OK",
+              context.book.booking_success_ok,
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ),
@@ -313,12 +313,12 @@ Future<void> showDeletePropertyDialog({
     context: context,
     builder: (context) {
       return AlertDialog(
-        title: const Text(
-          "Are you sure?",
+        title: Text(
+          context.ownerloc.deleteProperty_title,
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
-        content: const Text(
-          "Are you sure you want to delete this property?",
+        content: Text(
+          context.ownerloc.deleteProperty_content,
           style: TextStyle(fontSize: 16),
         ),
         actions: [
@@ -329,8 +329,8 @@ Future<void> showDeletePropertyDialog({
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: const Text(
-                  "Cancel",
+                child: Text(
+                  context.ownerloc.deleteProperty_cancel,
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -340,8 +340,8 @@ Future<void> showDeletePropertyDialog({
                   context.pop(); // close dialog first
                   onDelete();
                 },
-                child: const Text(
-                  "Delete",
+                child: Text(
+                  context.ownerloc.deleteProperty_delete,
                   style: TextStyle(
                     color: Colors.red,
                     fontSize: 18,
@@ -397,9 +397,9 @@ Future<dynamic> showCancelBookingDialog(BuildContext context, BookModel book) {
     context: context,
     builder: (context) {
       return AlertDialog(
-        title: const Text("Cancel booking"),
-        content: const Text(
-          "Are you sure you want to cancel this booking?",
+        title: Text(context.history.cancelBooking_title),
+        content: Text(
+          context.history.cancelBooking_message,
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
         ),
         actions: [
@@ -410,8 +410,8 @@ Future<dynamic> showCancelBookingDialog(BuildContext context, BookModel book) {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: const Text(
-                  "No",
+                child: Text(
+                  context.history.cancelBooking_no,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -421,8 +421,8 @@ Future<dynamic> showCancelBookingDialog(BuildContext context, BookModel book) {
                   context.read<BookingHistoryCubit>().cancelBooking(book);
                   Navigator.pop(context);
                 },
-                child: const Text(
-                  "Cancel Booking",
+                child: Text(
+                  context.history.cancelBooking_confirm,
                   style: TextStyle(
                     color: Colors.red,
                     fontSize: 16,
@@ -446,8 +446,8 @@ Future<dynamic> showEditUpcomingBookingDialog(
     context: context,
     builder: (context) {
       return AlertDialog(
-        title: const Text(
-          "Edit Booking",
+        title: Text(
+          context.history.editBooking_title,
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         content: BlocListener<BookingHistoryCubit, BookingHistoryState>(
@@ -470,7 +470,7 @@ Future<dynamic> showEditUpcomingBookingDialog(
               if (isEdited) {
                 showSnackBar(
                   context: context,
-                  message: "Update Booking request has been sent to Owner",
+                  message: context.history.editBooking_upcomingSuccess,
                   color: Colors.green,
                 );
 
@@ -494,7 +494,7 @@ Future<dynamic> showEditActiveBookingDialog(
     builder: (context) {
       return AlertDialog(
         title: Text(
-          "Edit Booking",
+          context.history.editBooking_title,
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         content: BlocListener<BookingHistoryCubit, BookingHistoryState>(
@@ -510,7 +510,7 @@ Future<dynamic> showEditActiveBookingDialog(
               } else {
                 showSnackBar(
                   context: context,
-                  message: "Booking update request has been sent to Owner",
+                  message: context.history.editBooking_activeSuccess,
                   color: Colors.green,
                 );
                 Navigator.of(context).pop();
@@ -535,7 +535,7 @@ Future<void> showLanguageDialog(
     context: context,
     builder: (_) => StatefulBuilder(
       builder: (context, setState) => AlertDialog(
-        title: const Text("Choose Language"),
+        title: Text(context.settings.choose_language),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -588,13 +588,13 @@ Future<void> showLogoutDialog(
           children: [
             Icon(Icons.logout, size: 50, color: kPrimaryColor.withAlpha(125)),
             const SizedBox(height: 16),
-            const Text(
-              "Logout",
+            Text(
+              context.settings.logout_title,
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 12),
-            const Text(
-              "Are you sure you want to logout?",
+            Text(
+              context.settings.logout_confirm_text,
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 16, color: Colors.grey),
             ),
@@ -610,7 +610,10 @@ Future<void> showLogoutDialog(
                     ),
                   ),
                   onPressed: () => Navigator.of(context).pop(),
-                  child: const Text("Cancel", style: TextStyle(fontSize: 16)),
+                  child: Text(
+                    context.settings.logout_cancel,
+                    style: TextStyle(fontSize: 16),
+                  ),
                 ),
                 const SizedBox(width: 8),
                 ElevatedButton(
@@ -628,8 +631,8 @@ Future<void> showLogoutDialog(
                     onConfirm();
                     context.pop();
                   },
-                  child: const Text(
-                    "Logout",
+                  child: Text(
+                    context.settings.logout_button,
                     style: TextStyle(fontSize: 16, color: Colors.white),
                   ),
                 ),
@@ -667,10 +670,19 @@ Future<void> showRatingDialog({
                 context.pop();
                 showSnackBar(
                   context: parentContext,
-                  message: "Rating submitted successfully!",
+                  message: context.home.rating_success,
                   color: Colors.green,
                 );
               } else if (state is PropertyRatingFailure) {
+                if (state.message.contains("booked")) {
+                  context.pop();
+                  showSnackBar(
+                    context: parentContext,
+                    message: context.home.ratingNotAllowed,
+                    color: Colors.red,
+                  );
+                  return;
+                }
                 context.pop();
                 showSnackBar(
                   context: parentContext,
@@ -696,7 +708,9 @@ Future<void> showRatingDialog({
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        hasRated ? 'Update Your Rating' : 'Rate This Property',
+                        hasRated
+                            ? context.home.update_your_rating
+                            : context.home.rate_this_property,
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -707,8 +721,10 @@ Future<void> showRatingDialog({
                       const SizedBox(height: 12),
                       Text(
                         hasRated
-                            ? 'You previously rated this property $initialRating ⭐\nYou can update your rating below.'
-                            : 'How would you rate your experience?',
+                            ? context.home.previous_rating_message(
+                                initialRating,
+                              )
+                            : context.home.rate_experience_prompt,
                         style: TextStyle(
                           fontSize: 14,
                           color: isDark ? Colors.white70 : Colors.black54,
@@ -756,8 +772,8 @@ Future<void> showRatingDialog({
                             onPressed: isLoading
                                 ? null
                                 : () => Navigator.of(context).pop(),
-                            child: const Text(
-                              'Cancel',
+                            child: Text(
+                              context.home.cancel,
                               style: TextStyle(fontWeight: FontWeight.w600),
                             ),
                           ),
@@ -800,7 +816,9 @@ Future<void> showRatingDialog({
                                     ),
                                   )
                                 : Text(
-                                    hasRated ? 'Update' : 'Submit',
+                                    hasRated
+                                        ? context.home.update
+                                        : context.home.submit,
                                     style: const TextStyle(
                                       fontWeight: FontWeight.w600,
                                     ),

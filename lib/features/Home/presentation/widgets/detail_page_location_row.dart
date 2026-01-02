@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/features/Home/data/models/property_model.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +23,7 @@ class DetailPageLocationRow extends StatelessWidget {
           ),
           Spacer(),
           Text(
-            "\$${property.price}/Night",
+            "\$${context.home.detail_pricePerNight(property.price)}",
             style: TextStyle(
               color: Colors.amber.shade800,
               fontSize: 14,

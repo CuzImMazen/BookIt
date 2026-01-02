@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/features/Owner/presentation/widgets/create_property_view2_body.dart';
 import 'package:flutter/material.dart';
 
@@ -12,9 +13,9 @@ class CreatePropertyView2 extends StatelessWidget {
         backgroundColor: Colors.transparent,
         surfaceTintColor: Colors.transparent,
         elevation: 0.5,
-        title: const Text(
-          "Create Property",
-          style: TextStyle(
+        title: Text(
+          context.ownerloc.createProperty_title,
+          style: const TextStyle(
             //color: Color(0xFF1A1A1A),
             fontWeight: FontWeight.w800,
             fontSize: 20,

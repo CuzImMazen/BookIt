@@ -1,0 +1,53 @@
+{
+    "@@locale": "ar",
+  "history_booking_history": "سجل الحجوزات",
+  "history_tab_ongoing": "جاري",
+  "history_tab_completed": "مكتمل",
+  "history_tab_canceled": "ملغى",
+  "history_no_ongoing_bookings": "لا توجد حجوزات جارية",
+  "history_no_completed_bookings": "لا توجد حجوزات مكتملة",
+  "history_no_canceled_bookings": "لا توجد حجوزات ملغاة",
+   "editBooking_start_date": "تاريخ البداية",
+  "editBooking_end_date": "تاريخ النهاية",
+  "editBooking_select_start_date_hint": "اختر تاريخ البداية",
+  "editBooking_select_end_date_hint": "اختر تاريخ النهاية",
+  "editBooking_enter_end_date_hint": "أدخل تاريخ النهاية",
+  "editBooking_confirm_button": "تأكيد",
+  "editBooking_no_changes_message": "لم تغير أي شيء",
+   "price_per_night": "{price}/ليلة",
+  "@price_per_night": {
+    "description": "سعر الليلة للعقار. {price} هو المتغير."
+  ,
+    "placeholders": {
+      "price": {}
+    }
+  },
+   "editBooking_title": "تعديل الحجز",
+  "@editBooking_title": {
+    "description": "عنوان مربع الحوار لتعديل الحجز"
+  },
+  "editBooking_upcomingSuccess": "تم إرسال طلب تعديل الحجز إلى المالك",
+  "@editBooking_upcomingSuccess": {
+    "description": "رسالة شريط الإشعار بعد تعديل حجز قادم"
+  },
+  "editBooking_activeSuccess": "تم إرسال طلب تحديث الحجز إلى المالك",
+  "@editBooking_activeSuccess": {
+    "description": "رسالة شريط الإشعار بعد تعديل الحجز النشط"
+  },
+  "cancelBooking_title": "إلغاء الحجز",
+  "@cancelBooking_title": {
+    "description": "عنوان مربع الحوار لإلغاء الحجز"
+  },
+  "cancelBooking_message": "هل أنت متأكد أنك تريد إلغاء هذا الحجز؟",
+  "@cancelBooking_message": {
+    "description": "نص محتوى مربع الحوار لإلغاء الحجز"
+  },
+  "cancelBooking_no": "لا",
+  "@cancelBooking_no": {
+    "description": "نص الزر السلبي في مربع الحوار لإلغاء الحجز"
+  },
+  "cancelBooking_confirm": "إلغاء الحجز",
+  "@cancelBooking_confirm": {
+    "description": "نص زر تأكيد/إلغاء في مربع الحوار لإلغاء الحجز"
+  }
+}

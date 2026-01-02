@@ -11,15 +11,15 @@ class FilterButtonRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Text(
-          "Category",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.w800),
+          "Book it",
+          style: TextStyle(fontSize: 30, fontWeight: FontWeight.w900),
         ),
-        //  Image.asset("assets/images/logo.png", height: 60),
+
         Spacer(),
         Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: kPrimaryColor.withAlpha(150),
+            color: kPrimaryColor.withAlpha(200),
           ),
           child: IconButton(
             onPressed: () {

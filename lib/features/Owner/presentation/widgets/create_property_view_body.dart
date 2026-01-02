@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:book_it/core/style/colors.dart';
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/core/utils/helpers.dart';
 import 'package:book_it/core/widgets/primary_button.dart';
 import 'package:book_it/features/Owner/presentation/widgets/category_selector_chips.dart';
@@ -50,8 +50,8 @@ class _CreatePropertyViewBodyState extends State<CreatePropertyViewBody> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              "Upload Property Images:",
+            Text(
+              context.ownerloc.createProperty_uploadImages,
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
             ),
             SizedBox(height: 15),
@@ -84,43 +84,38 @@ class _CreatePropertyViewBodyState extends State<CreatePropertyViewBody> {
             ),
             const SizedBox(height: 40),
             PrimaryButton(
-              text: "Continue",
+              text: context.ownerloc.createProperty_continue,
               onTap: () {
                 if (!isFormValid) {
                   if (propertyImages.length < 3) {
                     showSnackBar(
                       context: context,
-                      message: "Please upload at least 3 images",
-                      color: kPrimaryColor.withAlpha(200),
+                      message:
+                          context.ownerloc.createProperty_snack_uploadImages,
                     );
                     return;
                   }
                   if (selectedCategory == null) {
                     showSnackBar(
                       context: context,
-                      message: "Please select a category",
-                      color: const Color.fromARGB(
-                        255,
-                        54,
-                        24,
-                        59,
-                      ).withAlpha(200),
+                      message:
+                          context.ownerloc.createProperty_snack_selectCategory,
                     );
                     return;
                   }
                   if (selectedGovernorate == null) {
                     showSnackBar(
                       context: context,
-                      message: "Please select a governorate",
-                      color: kPrimaryColor.withAlpha(200),
+                      message: context
+                          .ownerloc
+                          .createProperty_snack_selectGovernorate,
                     );
                     return;
                   }
                   if (selectedCity == null) {
                     showSnackBar(
                       context: context,
-                      message: "Please select a city",
-                      color: kPrimaryColor.withAlpha(200),
+                      message: context.ownerloc.createProperty_snack_selectCity,
                     );
                     return;
                   }

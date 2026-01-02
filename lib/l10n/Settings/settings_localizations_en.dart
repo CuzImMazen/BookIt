@@ -31,4 +31,19 @@ class SettingsLocalizationsEn extends SettingsLocalizations {
 
   @override
   String get error_create_owner_account => 'Please create an owner account and try again.';
+
+  @override
+  String get choose_language => 'Choose Language';
+
+  @override
+  String get logout_title => 'Logout';
+
+  @override
+  String get logout_confirm_text => 'Are you sure you want to logout?';
+
+  @override
+  String get logout_cancel => 'Cancel';
+
+  @override
+  String get logout_button => 'Logout';
 }

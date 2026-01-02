@@ -1,0 +1,39 @@
+{
+    "@@locale": "ar",
+  "book_confirm_booking": "تأكيد الحجز",
+  "book_details_prompt": "نحتاج إلى بعض التفاصيل لإكمال حجزك.",
+  "book_start_date": "تاريخ البدء:",
+  "book_start_date_hint": "اختر تاريخ البدء",
+  "book_end_date": "تاريخ الانتهاء:",
+  "book_end_date_hint": "اختر تاريخ الانتهاء",
+  "book_billing_address": "عنوان الفوترة:",
+  "book_billing_address_hint": "أدخل عنوان الفوترة",
+  "book_card_number": "رقم البطاقة:",
+  "book_card_number_hint": "أدخل رقم بطاقة الفوترة",
+  "book_total_price": "السعر الإجمالي: {price}$",
+  "@book_total_price": {
+    "placeholders": {
+      "price": {}
+    }
+  },
+  "book_confirm_button": "تأكيد",
+
+  "booking_success_title": "نجاح",
+  "@booking_success_title": {
+    "description": "عنوان النافذة عند نجاح طلب الحجز"
+  },
+  "booking_success_message": "تم إرسال طلب الحجز الخاص بك بنجاح",
+  "@booking_success_message": {
+    "description": "الرسالة المعروضة داخل نافذة النجاح بعد إرسال طلب الحجز"
+  },
+  "booking_success_ok": "حسناً",
+  "@booking_success_ok": {
+    "description": "نص زر OK في نافذة نجاح الحجز"
+  },
+   "cardNumberRequired": "يرجى إدخال رقم بطاقتك",
+  "cardNumberTooShort": "يجب أن يكون رقم البطاقة 12 حرفًا على الأقل",
+  "cardNumberTooLong": "لا يمكن أن يكون رقم البطاقة أكثر من 19 حرفًا",
+  "billingAddressRequired": "يرجى إدخال عنوان الفوترة",
+  "startDateRequired": "يرجى إدخال تاريخ البدء",
+  "endDateRequired": "يرجى إدخال تاريخ الانتهاء"
+}

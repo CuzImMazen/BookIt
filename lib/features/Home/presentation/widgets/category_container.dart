@@ -25,7 +25,7 @@ class CategoryContainer extends StatelessWidget {
               : Colors.grey.withAlpha(125),
           borderRadius: BorderRadius.circular(15),
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 30),
         alignment: Alignment.center,
         child: Text(
           text,

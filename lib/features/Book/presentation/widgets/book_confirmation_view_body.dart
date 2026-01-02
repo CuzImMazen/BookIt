@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/core/style/colors.dart';
 import 'package:book_it/core/utils/helpers.dart';
 import 'package:book_it/core/utils/validators.dart';
@@ -107,61 +108,60 @@ class _BookConfirmationViewBodyState extends State<BookConfirmationViewBody> {
                   SizedBox(height: 60),
                   BackButtonRow(),
                   SizedBox(height: 20),
-                  PrimaryText(text: "Confirm your booking"),
+                  PrimaryText(text: context.book.book_confirm_booking),
                   SizedBox(height: 20),
-                  SecondaryText(
-                    text:
-                        "We need a few more details to complete your booking.",
-                  ),
+                  SecondaryText(text: context.book.book_details_prompt),
                   SizedBox(height: 30),
-                  LabelText(text: "Start Date:"),
+                  LabelText(text: context.book.book_start_date),
                   SizedBox(height: 10),
                   CustomTextField(
                     onTap: handlePickStartDate,
-                    hintText: "Select your start Date",
+                    hintText: context.book.book_start_date_hint,
                     prefixIcon: Icons.calendar_today,
-                    validator: startDateValidator,
+                    validator: (v) => startDateValidator(context, v),
                     controller: _startDateController,
                     readOnly: true,
                   ),
                   SizedBox(height: 20),
-                  LabelText(text: "End Date:"),
+                  LabelText(text: context.book.book_end_date),
                   SizedBox(height: 10),
                   CustomTextField(
                     onTap: handlePickEndDate,
-                    hintText: "Select your end Date",
+                    hintText: context.book.book_end_date_hint,
                     prefixIcon: Icons.calendar_today,
-                    validator: endDateValidator,
+                    validator: (v) => endDateValidator(context, v),
                     controller: _endDateController,
                     readOnly: true,
                   ),
                   SizedBox(height: 20),
-                  LabelText(text: " Billing Address:"),
+                  LabelText(text: context.book.book_billing_address),
                   SizedBox(height: 10),
                   CustomTextField(
-                    hintText: "Enter your billing address",
+                    hintText: context.book.book_billing_address_hint,
                     prefixIcon: Icons.location_on,
-                    validator: addressValidator,
+                    validator: (v) => addressValidator(context, v),
                     controller: _addressController,
                   ),
                   SizedBox(height: 20),
-                  LabelText(text: "Card Number:"),
+                  LabelText(text: context.book.book_card_number),
                   SizedBox(height: 10),
                   CustomTextField(
                     isNumber: true,
-                    hintText: "Enter your bill card number",
+                    hintText: context.book.book_card_number_hint,
                     prefixIcon: Icons.credit_card,
-                    validator: cardNumberValidator,
+                    validator: (v) => cardNumberValidator(context, v),
                     controller: _cardNumberController,
                   ),
                   SizedBox(height: 20),
 
                   LabelText(
-                    text: "Total Price:  ${totalPrice.toStringAsFixed(2)}\$",
+                    text: context.book.book_total_price(
+                      totalPrice.toStringAsFixed(2),
+                    ),
                   ),
                   SizedBox(height: 30),
                   PrimaryButton(
-                    text: "Confirm",
+                    text: context.book.book_confirm_button,
                     onTap: () {
                       if (_formKey.currentState!.validate()) {
                         context.read<BookCubit>().createBook(

@@ -1,0 +1,39 @@
+{
+    "@@locale": "en",
+  "book_confirm_booking": "Confirm your booking",
+  "book_details_prompt": "We need a few more details to complete your booking.",
+  "book_start_date": "Start Date:",
+  "book_start_date_hint": "Select your start Date",
+  "book_end_date": "End Date:",
+  "book_end_date_hint": "Select your end Date",
+  "book_billing_address": "Billing Address:",
+  "book_billing_address_hint": "Enter your billing address",
+  "book_card_number": "Card Number:",
+  "book_card_number_hint": "Enter your bill card number",
+  "book_total_price": "Total Price: {price}$",
+  "@book_total_price": {
+    "placeholders": {
+      "price": {}
+    }
+  },
+  "book_confirm_button": "Confirm"
+  ,
+   "booking_success_title": "Success",
+  "@booking_success_title": {
+    "description": "Title of the dialog shown when a booking request succeeds"
+  },
+  "booking_success_message": "Your booking request has been sent successfully",
+  "@booking_success_message": {
+    "description": "Message shown inside the success dialog after sending a booking request"
+  },
+  "booking_success_ok": "OK",
+  "@booking_success_ok": {
+    "description": "Text for the OK button in the booking success dialog"
+  },
+  "cardNumberRequired": "Please enter your card number",
+  "cardNumberTooShort": "Card number must be at least 12 characters",
+  "cardNumberTooLong": "Card number cant be more than 19 characters",
+  "billingAddressRequired": "Please enter your billing address",
+  "startDateRequired": "Please enter your start date",
+  "endDateRequired": "Please enter your end date"
+}

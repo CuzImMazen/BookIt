@@ -8,5 +8,10 @@
   "settings_logout": "تسجيل الخروج",
   "settings_logout_success": "تم تسجيل الخروج بنجاح",
   "settings_cant_access_owner_feature": "لا يمكنك الوصول إلى هذه الميزة",
-   "error_create_owner_account": "يرجى إنشاء حساب مالك والمحاولة مرة أخرى"
+   "error_create_owner_account": "يرجى إنشاء حساب مالك والمحاولة مرة أخرى",
+   "choose_language": "اختر اللغة",
+   "logout_title": "تسجيل الخروج",
+  "logout_confirm_text": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+  "logout_cancel": "إلغاء",
+  "logout_button": "تسجيل الخروج"
 }

@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:flutter/material.dart';
 
 class RangeSliderContainer extends StatelessWidget {
@@ -48,7 +49,7 @@ class RangeSliderContainer extends StatelessWidget {
             onChanged: onChanged,
           ),
           Text(
-            "Min: ${currentRange.start.toInt()}$unit  -  Max: ${currentRange.end.toInt()}$unit",
+            "${context.home.min}: ${currentRange.start.toInt()}$unit - ${context.home.max}: ${currentRange.end.toInt()}$unit",
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontSize: 16,

@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:flutter/material.dart';
 
 class RejectButton extends StatelessWidget {
@@ -18,7 +19,7 @@ class RejectButton extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 50),
           child: Text(
-            "Reject",
+            context.ownerloc.reject,
             style: TextStyle(
               fontSize: 16,
               color: Colors.white,

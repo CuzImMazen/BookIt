@@ -7,7 +7,11 @@ import 'package:book_it/features/Authentication/presentation/ViewModel/cubit/aut
 import 'package:book_it/features/Settings/presentation/viewModel/cubit/darkmode_cubit.dart';
 import 'package:book_it/features/Settings/presentation/viewModel/cubit/language_cubit.dart';
 import 'package:book_it/l10n/Authentication/auth_localizations.dart';
+import 'package:book_it/l10n/Book/book_localizations.dart';
+import 'package:book_it/l10n/History/history_localizations.dart';
+import 'package:book_it/l10n/Home/home_localizations.dart';
 import 'package:book_it/l10n/Layout/layout_localizations.dart';
+import 'package:book_it/l10n/Owner/owner_localizations.dart';
 import 'package:book_it/l10n/Settings/settings_localizations.dart';
 import 'package:book_it/l10n/Welcome/welcome_localizations.dart';
 import 'package:book_it/l10n/app_localizations.dart';
@@ -44,6 +48,10 @@ class AppRoot extends StatelessWidget {
         AuthLocalizations.delegate,
         LayoutLocalizations.delegate,
         SettingsLocalizations.delegate,
+        HomeLocalizations.delegate,
+        BookLocalizations.delegate,
+        HistoryLocalizations.delegate,
+        OwnerLocalizations.delegate,
 
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,

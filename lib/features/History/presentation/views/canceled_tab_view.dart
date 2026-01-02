@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/core/style/colors.dart';
 import 'package:book_it/features/History/presentation/ViewModel/cubit/booking_history_cubit.dart';
 import 'package:book_it/features/History/presentation/ViewModel/cubit/booking_history_state.dart';
@@ -23,7 +24,9 @@ class CanceledTabView extends StatelessWidget {
           return Center(child: Text(state.errorCanceled!));
         }
         if (state.canceled.isEmpty) {
-          return const Center(child: Text("No Canceled bookings"));
+          return Center(
+            child: Text(context.history.history_no_canceled_bookings),
+          );
         }
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10),

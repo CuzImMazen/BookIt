@@ -49,7 +49,7 @@ class SettingsView extends StatelessWidget {
                   const SizedBox(height: 40),
                   Center(
                     child: Text(
-                      "Settings",
+                      context.settings.settings_title,
                       style: const TextStyle(
                         fontSize: 32,
                         fontWeight: FontWeight.bold,
@@ -107,7 +107,7 @@ class SettingsView extends StatelessWidget {
                   const SizedBox(height: 16),
 
                   SettingsCard(
-                    icon: Icons.sync,
+                    icon: Icons.apartment,
                     title: context.settings.settings_my_properties,
                     onTap: () {
                       final authState = context

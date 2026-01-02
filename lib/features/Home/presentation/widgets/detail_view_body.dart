@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/core/utils/helpers.dart';
 import 'package:book_it/features/Authentication/presentation/ViewModel/cubit/authentication_cubit.dart';
 import 'package:book_it/features/Book/data/model/confirm_book_data.dart';
@@ -37,23 +38,17 @@ class DetailViewBody extends StatelessWidget {
                 SizedBox(height: 20),
                 PropertyFeaturesScroller(property: property),
                 SizedBox(height: 20),
-                Directionality(
-                  textDirection: TextDirection.ltr,
-                  child: Text(
-                    "Property Description",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
-                  ),
+                Text(
+                  context.home.detail_propertyDescription,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
                 ),
                 SizedBox(height: 10),
 
                 ReadMoreDescription(property: property),
                 SizedBox(height: 20),
-                Directionality(
-                  textDirection: TextDirection.ltr,
-                  child: Text(
-                    "Owner",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
-                  ),
+                Text(
+                  context.home.detail_owner,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
                 ),
                 SizedBox(height: 12),
                 OwnerRow(propertyOwner: property.owner!),
@@ -65,7 +60,7 @@ class DetailViewBody extends StatelessWidget {
                       if (authState.user.id == property.owner!.id) {
                         showSnackBar(
                           context: context,
-                          message: "You can't book your own property",
+                          message: context.home.detail_cantBookOwnProperty,
                           color: Colors.red,
                         );
                         return;

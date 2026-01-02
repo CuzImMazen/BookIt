@@ -1,0 +1,171 @@
+{
+    "@@locale": "en",
+  "filters_title": "Filters",
+  "filters_governorate": "Governorate :",
+  "filters_select_governorate": "Select Governorate",
+  "filters_choose_city": "Choose a City :",
+  "filters_select_city": "Select City",
+  "filters_price": "Price :",
+  "filters_area": "Area :",
+  "filters_num_bedrooms": "Num of Bedrooms :",
+  "filters_num_bathrooms": "Num of Bathrooms :",
+  "filters_num_kitchens": "Num of Kitchens :",
+  "filters_only_available": "Only Available",
+  "filters_apply_button": "Apply Filter",
+  "onlyShowAvailableProperties": "Only show available properties",
+  "any": "Any",
+   "min": "Min",
+  "max": "Max"
+  ,
+  "all":"All",
+  "damascus": "Damascus",
+  "ruralDamascus": "Rural Damascus",
+  "aleppo": "Aleppo",
+  "idlib": "Idlib",
+  "homs": "Homs",
+  "hama": "Hama",
+  "latakia": "Latakia",
+  "tartus": "Tartus",
+  "sweidah": "Sweidah",
+  "daraa": "Dara'a",
+  "hassakeh": "Hassakeh",
+  "deirAlzoor": "Deir Alzoor",
+  "alraqqa": "Alraqqa",
+  "alQuneitra": "AlQuneitra",
+
+ 
+  "damascus_alQadam": "Al-Qadam",
+  "damascus_mazzeh": "Mazzeh",
+  "damascus_alSalihiyah": "Al-Salihiyah",
+  "damascus_baramkeh": "Baramkeh",
+  "damascus_alZahra": "Al-Zahra",
+
+ 
+  "ruralDamascus_douma": "Douma",
+  "ruralDamascus_harasta": "Harasta",
+  "ruralDamascus_saidnaya": "Saidnaya",
+  "ruralDamascus_zabadani": "Zabadani",
+  "ruralDamascus_alTall": "Al-Tall",
+
+ 
+  "aleppo_azaz": "Azaz",
+  "aleppo_alBab": "Al-Bab",
+  "aleppo_manbij": "Manbij",
+  "aleppo_jarabulus": "Jarabulus",
+  "aleppo_alSukkari": "Al-Sukkari",
+
+ 
+  "idlib_maaratAlNuman": "Maarat al-Numan",
+  "idlib_jisrAlShughur": "Jisr al-Shughur",
+  "idlib_ariha": "Ariha",
+  "idlib_saraqib": "Saraqib",
+
+ 
+  "homs_alRastan": "Al-Rastan",
+  "homs_alQusayr": "Al-Qusayr",
+  "homs_talbiseh": "Talbiseh",
+  "homs_tadmur": "Tadmur",
+
+ 
+  "hama_masyaf": "Masyaf",
+  "hama_salamiyah": "Salamiyah",
+  "hama_mahardah": "Mahardah",
+  "hama_suran": "Suran",
+
+  
+  "latakia_jableh": "Jableh",
+  "latakia_qardaha": "Qardaha",
+  "latakia_alHaffah": "Al-Haffah",
+  "latakia_rabia": "Rabia",
+
+  
+  "tartus_baniyas": "Baniyas",
+  "tartus_safita": "Safita",
+  "tartus_alShaykhBadr": "Al-Shaykh Badr",
+  "tartus_duraykish": "Duraykish",
+
+ 
+  "sweidah_shahba": "Shahba",
+  "sweidah_sahwatAlKhudr": "Sahwat al-Khudr",
+  "sweidah_shaqqa": "Shaqqa",
+  "sweidah_rweished": "Rweished",
+
+  
+  "daraa_dael": "Da'el",
+  "daraa_nawa": "Nawa",
+  "daraa_izraa": "Izraa",
+  "daraa_alShajara": "Al-Shajara",
+
+ 
+  "hassakeh_qamishli": "Qamishli",
+  "hassakeh_amuda": "Amuda",
+  "hassakeh_alMalikiyah": "Al-Malikiyah",
+  "hassakeh_rasAlAyn": "Ras al-Ayn",
+
+  
+  "deirAlzoor_alMayadin": "Al-Mayadin",
+  "deirAlzoor_alBusayrah": "Al-Busayrah",
+  "deirAlzoor_alShuhayl": "Al-Shuhayl",
+  "deirAlzoor_alKasrah": "Al-Kasrah",
+
+  
+  "alraqqa_alThawrah": "Al-Thawrah",
+  "alraqqa_alMansurah": "Al-Mansurah",
+  "alraqqa_alResafa": "Al-Resafa",
+  "alraqqa_alHurriya": "Al-Hurriya",
+
+  
+  "alQuneitra_fiq": "Fiq",
+  "alQuneitra_buqata": "Buqata",
+  "alQuneitra_kafrShams": "Kafr Shams",
+  "discardDialog_title": "Are you sure?",
+  "discardDialog_content": "You will lose all your filters",
+  "discardDialog_cancel": "Cancel",
+  "discardDialog_yes": "Yes",
+  "category_all": "All",
+  "category_house": "House",
+  "category_villa": "Villa",
+  "category_apartment": "Apartment",
+   "detail_propertyDescription": "Property Description",
+  "detail_owner": "Owner",
+  "detail_cantBookOwnProperty": "You can't book your own property",
+  "detail_available": "Available",
+  "detail_unavailable": "Unavailable",
+  "detail_pricePerNight": "{price}/Night",
+  "@detail_pricePerNight": {
+    "placeholders": {
+      "price": {} 
+    }
+  },
+  "read_more": "ReadMore",
+  "read_less": "ReadLess",
+  "bathroom": "Bathroom",
+  "bedroom": "Bedroom",
+  "kitchen": "Kitchen",
+  "book_now": "BookIt Now",
+   "cannot_rate_own_property": "You can't rate your own property",
+  "rating_success": "Rating submitted successfully!",
+  "update_your_rating": "Update Your Rating",
+  "rate_this_property": "Rate This Property",
+  "previous_rating_message": "You previously rated this property {rating} ⭐\nYou can update your rating below.",
+  "@previous_rating_message": {
+    "placeholders": {
+      "rating": {}
+    }
+  },
+  "rate_experience_prompt": "How would you rate your experience?",
+  "cancel": "Cancel",
+  "update": "Update",
+  "submit": "Submit",
+  "rating_failed": "Rating failed",
+  "fetchFailed": "Failed to fetch data.",
+  "noProperties": "No properties found.",
+  "timeout": "Connection timeout. Please try again.",
+  "serverError": "Server error occurred.",
+  "unexpectedError": "Something went wrong.",
+  "ratingNotAllowed": "You can’t rate a property you haven’t booked before."
+
+}
+
+
+

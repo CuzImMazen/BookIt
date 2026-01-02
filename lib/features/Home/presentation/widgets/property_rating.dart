@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/core/utils/helpers.dart';
 import 'package:book_it/features/Authentication/presentation/ViewModel/cubit/authentication_cubit.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +56,7 @@ class PropertyRatingWidget extends StatelessWidget {
               if (ownerId == currentUserId) {
                 showSnackBar(
                   context: context,
-                  message: "You can't rate your own property",
+                  message: context.home.cannot_rate_own_property,
                   color: Colors.red,
                 );
                 return;
@@ -76,7 +77,7 @@ class PropertyRatingWidget extends StatelessWidget {
               ),
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               child: Text(
-                "Rate this property",
+                context.home.rate_this_property,
                 style: const TextStyle(
                   color: Colors.amber,
                   fontWeight: FontWeight.w900,

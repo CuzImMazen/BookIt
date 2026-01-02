@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/core/utils/helpers.dart';
 import 'package:book_it/features/Owner/data/models/pending_booking.dart';
 import 'package:book_it/features/Owner/presentation/ViewModel/cubit/owner_requests_cubit.dart';
@@ -38,7 +39,7 @@ class ModificationRequestCard extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        pendingBooking.property.category,
+                        capitalize(pendingBooking.property.category),
                         style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w900,
@@ -77,7 +78,7 @@ class ModificationRequestCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "\$${pendingBooking.property.price}/Night",
+                      "\$${pendingBooking.property.price}/${context.ownerloc.bookingRequest_perNight}",
                       style: const TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
@@ -93,10 +94,10 @@ class ModificationRequestCard extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    "Original Date:",
+                    context.ownerloc.bookingRequest_originalDate,
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  const SizedBox(width: 18),
+                  const SizedBox(width: 10),
                   const Icon(Icons.calendar_month_outlined, color: Colors.grey),
                   const SizedBox(width: 5),
                   Text(
@@ -118,7 +119,7 @@ class ModificationRequestCard extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    "Adjusted Date:",
+                    context.ownerloc.bookingRequest_adjustedDate,
                     style: const TextStyle(fontWeight: FontWeight.w800),
                   ),
                   const SizedBox(width: 10),

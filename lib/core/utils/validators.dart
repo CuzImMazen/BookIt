@@ -60,57 +60,57 @@ String? dateOfBirthValidator(BuildContext context, String? value) {
   return null;
 }
 
-String? cardNumberValidator(String? value) {
+String? cardNumberValidator(BuildContext context, String? value) {
   value = value?.trim();
   if (value == null || value.isEmpty) {
-    return "Please enter your card number";
+    return context.book.cardNumberRequired;
   }
   if (value.length < 12) {
-    return "Card number must be at least 12 characters";
+    return context.book.cardNumberTooShort;
   }
   if (value.length > 19) {
-    return "Card number cant be more than 19 characters";
+    return context.book.cardNumberTooLong;
   }
   return null;
 }
 
-String? addressValidator(String? value) {
+String? addressValidator(BuildContext context, String? value) {
   value = value?.trim();
   if (value == null || value.isEmpty) {
-    return "Please enter your billing address";
+    return context.book.billingAddressRequired;
   }
   return null;
 }
 
-String? startDateValidator(String? value) {
+String? startDateValidator(BuildContext context, String? value) {
   value = value?.trim();
   if (value == null || value.isEmpty) {
-    return "Please enter your start date";
+    return context.book.startDateRequired;
   }
   return null;
 }
 
-String? endDateValidator(String? value) {
+String? endDateValidator(BuildContext context, String? value) {
   value = value?.trim();
   if (value == null || value.isEmpty) {
-    return "Please enter your end date";
+    return context.book.endDateRequired;
   }
 
   return null;
 }
 
-String? priceValidator(String? value) {
-  if (value == null || value.isEmpty) return "Required";
+String? priceValidator(BuildContext context, String? value) {
+  if (value == null || value.isEmpty) return context.ownerloc.requiredd;
   final intValue = int.tryParse(value);
-  if (intValue == null) return "Must be a number";
-  if (intValue < 25 || intValue > 250) return "Price : 25–250 \$";
+  if (intValue == null) return context.ownerloc.mustBeNumber;
+  if (intValue < 25 || intValue > 250) return context.ownerloc.priceRange;
   return null;
 }
 
-String? areaValidator(String? value) {
-  if (value == null || value.isEmpty) return "Required";
+String? areaValidator(BuildContext context, String? value) {
+  if (value == null || value.isEmpty) return context.ownerloc.requiredd;
   final intValue = int.tryParse(value);
-  if (intValue == null) return "Must be a number";
-  if (intValue < 100 || intValue > 1000) return "Area : 100–1000 m²";
+  if (intValue == null) return context.ownerloc.mustBeNumber;
+  if (intValue < 100 || intValue > 1000) return context.ownerloc.areaRange;
   return null;
 }

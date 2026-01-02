@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:flutter/material.dart';
 import 'stepper_tile.dart';
 
@@ -42,21 +43,21 @@ class RoomSelector extends StatelessWidget {
       child: Column(
         children: [
           StepperTile(
-            title: "Bedrooms",
+            title: context.ownerloc.bedrooms,
             icon: Icons.king_bed_outlined,
             value: bedrooms,
             onChanged: onBedroomsChanged,
           ),
           _divider(context),
           StepperTile(
-            title: "Bathrooms",
+            title: context.ownerloc.bathrooms,
             icon: Icons.hot_tub_outlined,
             value: bathrooms,
             onChanged: onBathroomsChanged,
           ),
           _divider(context),
           StepperTile(
-            title: "Kitchens",
+            title: context.ownerloc.kitchens,
             icon: Icons.flatware_rounded,
             value: kitchens,
             onChanged: onKitchensChanged,

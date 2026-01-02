@@ -1,0 +1,53 @@
+{
+    "@@locale": "en",
+  "history_booking_history": "Booking History",
+  "history_tab_ongoing": "Ongoing",
+  "history_tab_completed": "Completed",
+  "history_tab_canceled": "Cancelled",
+  "history_no_ongoing_bookings": "No Ongoing bookings",
+  "history_no_completed_bookings": "No Completed bookings",
+  "history_no_canceled_bookings": "No Canceled bookings",
+  "editBooking_start_date": "Start Date",
+  "editBooking_end_date": "End Date",
+  "editBooking_select_start_date_hint": "Select start date",
+  "editBooking_select_end_date_hint": "Select end date",
+  "editBooking_enter_end_date_hint": "Enter End Date",
+  "editBooking_confirm_button": "Confirm",
+  "editBooking_no_changes_message": "You didn’t change anything",
+  "price_per_night": "{price}/Night",
+  "@price_per_night": {
+    "description": "Price per night for the property. {price} is a variable."
+  ,
+    "placeholders": {
+      "price": {}
+    }
+  },
+  "editBooking_title": "Edit Booking",
+  "@editBooking_title": {
+    "description": "Title of the booking edit dialog"
+  },
+  "editBooking_upcomingSuccess": "Update Booking request has been sent to Owner",
+  "@editBooking_upcomingSuccess": {
+    "description": "Snack bar message shown after editing an upcoming booking"
+  },
+  "editBooking_activeSuccess": "Booking update request has been sent to Owner",
+  "@editBooking_activeSuccess": {
+    "description": "Snack bar message shown after editing an active booking"
+  },
+   "cancelBooking_title": "Cancel booking",
+  "@cancelBooking_title": {
+    "description": "Title of the cancel booking dialog"
+  },
+  "cancelBooking_message": "Are you sure you want to cancel this booking?",
+  "@cancelBooking_message": {
+    "description": "Content message of the cancel booking dialog"
+  },
+  "cancelBooking_no": "No",
+  "@cancelBooking_no": {
+    "description": "Negative button text in cancel booking dialog"
+  },
+  "cancelBooking_confirm": "Cancel Booking",
+  "@cancelBooking_confirm": {
+    "description": "Confirm/cancel button text in cancel booking dialog"
+  }
+}

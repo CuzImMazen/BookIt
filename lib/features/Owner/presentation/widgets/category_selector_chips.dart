@@ -1,5 +1,7 @@
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/core/style/colors.dart';
+import 'package:flutter/material.dart';
 
 class CategorySelectorChips extends StatelessWidget {
   final List<String> categories;
@@ -16,16 +18,21 @@ class CategorySelectorChips extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final unselectedColor =
-        theme.colorScheme.surface; // replaces deprecated surfaceVariant
-    final selectedTextColor = Colors.white; // always white on primary
+    final unselectedColor = theme.colorScheme.surface;
+    final selectedTextColor = Colors.white;
     final unselectedTextColor = theme.colorScheme.onSurface.withOpacity(0.8);
+
+    final Map<String, String> categoryLabels = {
+      "House": context.ownerloc.house,
+      "Apartment": context.ownerloc.apartment,
+      "Villa": context.ownerloc.villa,
+    };
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Select Property Category:",
+          context.ownerloc.selectPropertyCategory,
           style: theme.textTheme.titleMedium?.copyWith(
             fontWeight: FontWeight.w500,
           ),
@@ -37,7 +44,7 @@ class CategorySelectorChips extends StatelessWidget {
             final isSelected = selectedCategory == category;
             return ChoiceChip(
               label: Text(
-                category,
+                categoryLabels[category] ?? category,
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: isSelected ? selectedTextColor : unselectedTextColor,
                 ),

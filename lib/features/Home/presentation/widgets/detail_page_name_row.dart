@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/features/Home/data/models/property_model.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class DetailPageNameRow extends StatelessWidget {
           Spacer(),
           property.availability
               ? Text(
-                  "Available",
+                  context.home.detail_available,
                   style: TextStyle(
                     fontSize: 18,
                     color: Colors.green,
@@ -27,7 +28,7 @@ class DetailPageNameRow extends StatelessWidget {
                   ),
                 )
               : Text(
-                  "Unavailable",
+                  context.home.detail_unavailable,
                   style: TextStyle(
                     fontSize: 18,
                     color: Colors.red,

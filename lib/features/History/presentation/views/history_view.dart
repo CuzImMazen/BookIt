@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/core/utils/helpers.dart';
 import 'package:book_it/features/History/presentation/ViewModel/cubit/booking_history_cubit.dart';
 import 'package:book_it/features/History/presentation/ViewModel/cubit/booking_history_state.dart';
@@ -30,16 +31,16 @@ class HistoryView extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             toolbarHeight: 70,
-            title: const Text(
-              "Booking History",
+            title: Text(
+              context.history.history_booking_history,
               style: TextStyle(fontWeight: FontWeight.w700),
             ),
             centerTitle: true,
             bottom: TabBar(
               tabs: [
-                Tab(text: "Ongoing"),
-                Tab(text: "Completed"),
-                Tab(text: "Cancelled"),
+                Tab(text: context.history.history_tab_ongoing),
+                Tab(text: context.history.history_tab_completed),
+                Tab(text: context.history.history_tab_canceled),
               ],
             ),
           ),
