@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/core/widgets/primary_text.dart';
 import 'package:book_it/features/Owner/presentation/widgets/my_properties_body.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class MyPropertiesView extends StatelessWidget {
         toolbarHeight: 80,
         title: Align(
           alignment: Alignment.center,
-          child: PrimaryText(text: "My Properties"),
+          child: PrimaryText(text: context.ownerloc.myProperties_title),
         ),
         actions: [
           IconButton(

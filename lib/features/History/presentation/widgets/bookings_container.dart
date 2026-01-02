@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/features/History/data/model/book_model.dart';
 import 'package:book_it/features/History/presentation/widgets/book_date_and_status_row.dart';
 import 'package:book_it/features/History/presentation/widgets/title_and_buttons_row.dart';
@@ -55,7 +56,7 @@ class BookingsContainer extends StatelessWidget {
                         ),
                         SizedBox(height: 3),
                         Text(
-                          "\$${book.property.price}/Night",
+                          "\$${context.history.price_per_night(book.property.price)}",
                           style: TextStyle(fontWeight: FontWeight.w600),
                         ),
                         SizedBox(height: 10),

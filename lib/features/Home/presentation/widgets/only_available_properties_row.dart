@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:flutter/material.dart';
 
 class OnlyAvailablePropertiesRow extends StatelessWidget {
@@ -14,8 +15,8 @@ class OnlyAvailablePropertiesRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Text(
-          "Only show available properties",
+        Text(
+          context.home.onlyShowAvailableProperties,
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
         ),
         const Spacer(),

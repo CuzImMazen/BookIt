@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/core/style/colors.dart';
 import 'package:book_it/features/History/presentation/ViewModel/cubit/booking_history_cubit.dart';
 import 'package:book_it/features/History/presentation/ViewModel/cubit/booking_history_state.dart';
@@ -22,7 +23,9 @@ class OnGoingTabView extends StatelessWidget {
           return Center(child: Text(state.errorOngoing!));
         }
         if (state.ongoing.isEmpty) {
-          return const Center(child: Text("No Ongoing bookings"));
+          return Center(
+            child: Text(context.history.history_no_ongoing_bookings),
+          );
         }
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10),

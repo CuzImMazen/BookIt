@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/core/style/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -110,7 +111,7 @@ class _ImagePickerGridState extends State<ImagePickerGrid> {
             onTap: pickImages,
             child: Container(
               decoration: BoxDecoration(
-                color: scheme.surfaceVariant,
+                color: scheme.surfaceContainerHighest,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(
@@ -176,7 +177,9 @@ class _ImagePickerGridState extends State<ImagePickerGrid> {
                     vertical: 4,
                   ),
                   child: Text(
-                    isMain ? "MAIN" : "Set Main",
+                    isMain
+                        ? context.ownerloc.mainImageLabel
+                        : context.ownerloc.setMainImageLabel,
                     style: theme.textTheme.bodySmall?.copyWith(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,

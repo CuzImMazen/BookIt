@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/core/style/colors.dart';
 import 'package:book_it/features/Home/data/models/property_model.dart';
 import 'package:flutter/material.dart';
@@ -10,26 +11,25 @@ class ReadMoreDescription extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.ltr,
-      child: SizedBox(
-        width: double.infinity,
-        child: ReadMoreText(
-          trimLines: 3,
-          trimMode: TrimMode.Line,
-          moreStyle: TextStyle(
-            fontSize: 14,
-            color: kPrimaryColor,
-            fontWeight: FontWeight.bold,
-          ),
-          lessStyle: TextStyle(
-            fontSize: 14,
-            color: kPrimaryColor,
-            fontWeight: FontWeight.bold,
-          ),
-          property.description,
-          colorClickableText: kPrimaryColor,
+    return SizedBox(
+      width: double.infinity,
+      child: ReadMoreText(
+        trimExpandedText: context.home.read_less,
+        trimCollapsedText: context.home.read_more,
+        trimLines: 3,
+        trimMode: TrimMode.Line,
+        moreStyle: TextStyle(
+          fontSize: 14,
+          color: kPrimaryColor,
+          fontWeight: FontWeight.bold,
         ),
+        lessStyle: TextStyle(
+          fontSize: 14,
+          color: kPrimaryColor,
+          fontWeight: FontWeight.bold,
+        ),
+        property.description,
+        colorClickableText: kPrimaryColor,
       ),
     );
   }

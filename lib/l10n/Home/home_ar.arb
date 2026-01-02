@@ -1,0 +1,178 @@
+{
+    "@@locale": "ar",
+  "filters_title": "الفلاتر",
+  "filters_governorate": "المحافظة :",
+  "filters_select_governorate": "اختر المحافظة",
+  "filters_choose_city": "اختر المدينة :",
+  "filters_select_city": "اختر المدينة",
+  "filters_price": "السعر :",
+  "filters_area": "المساحة :",
+  "filters_num_bedrooms": "عدد غرف النوم :",
+  "filters_num_bathrooms": "عدد الحمامات :",
+  "filters_num_kitchens": "عدد المطابخ :",
+  "filters_only_available": "المتاحة فقط",
+  "filters_apply_button": "تطبيق الفلاتر",
+  "onlyShowAvailableProperties": "عرض العقارات المتاحة فقط",
+  "any": "أي عدد" , 
+  "min": "الحد الأدنى",
+  "max": "الحد الأقصى"
+
+  ,
+ 
+  "all": "الكل",
+  "damascus": "دمشق",
+  "ruralDamascus": "ريف دمشق",
+  "aleppo": "حلب",
+  "idlib": "إدلب",
+  "homs": "حمص",
+  "hama": "حماة",
+  "latakia": "اللاذقية",
+  "tartus": "طرطوس",
+  "sweidah": "السويداء",
+  "daraa": "درعا",
+  "hassakeh": "الحسكة",
+  "deirAlzoor": "دير الزور",
+  "alraqqa": "الرقة",
+  "alQuneitra": "القنيطرة",
+
+ 
+  "damascus_alQadam": "القدم",
+  "damascus_mazzeh": "المزه",
+  "damascus_alSalihiyah": "الصالحية",
+  "damascus_baramkeh": "البرامكة",
+  "damascus_alZahra": "الزهراء",
+
+  
+  "ruralDamascus_douma": "دوما",
+  "ruralDamascus_harasta": "حرستا",
+  "ruralDamascus_saidnaya": "صيدنايا",
+  "ruralDamascus_zabadani": "الزبداني",
+  "ruralDamascus_alTall": "التل",
+
+ 
+  "aleppo_azaz": "أعزاز",
+  "aleppo_alBab": "الباب",
+  "aleppo_manbij": "منبج",
+  "aleppo_jarabulus": "جرابلس",
+  "aleppo_alSukkari": "السكاري",
+
+  
+  "idlib_maaratAlNuman": "معرة النعمان",
+  "idlib_jisrAlShughur": "جسر الشغور",
+  "idlib_ariha": "أريحا",
+  "idlib_saraqib": "سراقب",
+
+
+  "homs_alRastan": "الرستن",
+  "homs_alQusayr": "القصير",
+  "homs_talbiseh": "تلبيسة",
+  "homs_tadmur": "تدمر",
+
+ 
+  "hama_masyaf": "مصياف",
+  "hama_salamiyah": "السلمية",
+  "hama_mahardah": "محردة",
+  "hama_suran": "صوران",
+
+ 
+  "latakia_jableh": "جبلة",
+  "latakia_qardaha": "القرداحة",
+  "latakia_alHaffah": "الحفة",
+  "latakia_rabia": "ربيعة",
+
+ 
+  "tartus_baniyas": "بانياس",
+  "tartus_safita": "صافيتا",
+  "tartus_alShaykhBadr": "الشيخ بدر",
+  "tartus_duraykish": "دريكيش",
+
+
+  "sweidah_shahba": "شهبا",
+  "sweidah_sahwatAlKhudr": "سهوة الخضر",
+  "sweidah_shaqqa": "شقّا",
+  "sweidah_rweished": "الرويشد",
+
+  
+  "daraa_dael": "داعل",
+  "daraa_nawa": "نوى",
+  "daraa_izraa": "إزرع",
+  "daraa_alShajara": "الشجرة",
+
+ 
+  "hassakeh_qamishli": "القامشلي",
+  "hassakeh_amuda": "عامودا",
+  "hassakeh_alMalikiyah": "المليكية",
+  "hassakeh_rasAlAyn": "رأس العين",
+
+  
+  "deirAlzoor_alMayadin": "الميادين",
+  "deirAlzoor_alBusayrah": "البصيرة",
+  "deirAlzoor_alShuhayl": "الشحيل",
+  "deirAlzoor_alKasrah": "الكاسرة",
+
+ 
+  "alraqqa_alThawrah": "الثورة",
+  "alraqqa_alMansurah": "المنصورة",
+  "alraqqa_alResafa": "الرصافة",
+  "alraqqa_alHurriya": "الحرية",
+
+  
+  "alQuneitra_fiq": "فيق",
+  "alQuneitra_buqata": "بقعاثا",
+  "alQuneitra_kafrShams": "كفر شمس"
+  
+ ,
+  "discardDialog_title": "هل أنت متأكد؟",
+  "discardDialog_content": "ستفقد جميع فلاترك",
+  "discardDialog_cancel": "إلغاء",
+  "discardDialog_yes": "نعم",
+  "category_all": "الكل",
+  "category_house": "منزل",
+  "category_villa": "فيلا",
+  "category_apartment": "شقة",
+  "detail_propertyDescription": "وصف العقار",
+  "detail_owner": "المالك",
+  "detail_cantBookOwnProperty": "لا يمكنك حجز عقارك الخاص",
+  "detail_available": "متاح",
+  "detail_unavailable": "غير متاح",
+  "detail_pricePerNight": "{price}/لكل ليلة",
+  "@detail_pricePerNight": {
+    "placeholders": { 
+      "price": {}
+    }
+  },
+  "read_more": "قراءة المزيد",
+  "read_less": "اخفاء",
+  "bathroom": "حمام",
+  "bedroom": "غرفة نوم",
+  "kitchen": "مطبخ",
+  "book_now": "احجز الآن",
+
+  "cannot_rate_own_property": "لا يمكنك تقييم عقارك الخاص",
+  "rate_this_property": "قيّم هذا العقار",
+  "rating_success": "تم إرسال التقييم بنجاح!",
+  "update_your_rating": "تحديث التقييم",
+  
+  "previous_rating_message": "لقد قمت بتقييم هذا العقار مسبقًا بـ {rating} ⭐\nيمكنك تحديث تقييمك أدناه.",
+  "@previous_rating_message": {
+    "placeholders": {
+      "rating": {}
+    }
+  },
+  "rate_experience_prompt": "كيف تقيم تجربتك؟",
+  "cancel": "إلغاء",
+  "update": "تحديث",
+  "submit": "إرسال",
+  "rating_failed": "فشل التقييم",
+  "fetchFailed": "فشل في جلب البيانات.",
+  "noProperties": "لا توجد عقارات.",
+  "timeout": "انتهت مهلة الاتصال، حاول مرة أخرى.",
+  "serverError": "حدث خطأ في الخادم.",
+  "unexpectedError": "حدث خطأ غير متوقع.",
+  "ratingNotAllowed": "لا يمكنك تقييم عقار لم تقم بحجزه مسبقًا."
+
+}
+
+
+
+

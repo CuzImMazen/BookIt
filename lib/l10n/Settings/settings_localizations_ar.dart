@@ -31,4 +31,19 @@ class SettingsLocalizationsAr extends SettingsLocalizations {
 
   @override
   String get error_create_owner_account => 'يرجى إنشاء حساب مالك والمحاولة مرة أخرى';
+
+  @override
+  String get choose_language => 'اختر اللغة';
+
+  @override
+  String get logout_title => 'تسجيل الخروج';
+
+  @override
+  String get logout_confirm_text => 'هل أنت متأكد أنك تريد تسجيل الخروج؟';
+
+  @override
+  String get logout_cancel => 'إلغاء';
+
+  @override
+  String get logout_button => 'تسجيل الخروج';
 }

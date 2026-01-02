@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/core/style/colors.dart';
 import 'package:book_it/core/utils/helpers.dart';
 import 'package:book_it/core/utils/validators.dart';
@@ -71,13 +72,13 @@ class _EditActiveBookingDialogContentState
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        const LabelText(text: "End Date :"),
+        LabelText(text: context.history.editBooking_end_date),
         const SizedBox(height: 10),
         CustomTextField(
           onTap: pickEndDate,
           readOnly: true,
-          validator: endDateValidator,
-          hintText: "Enter End Date",
+          validator: (v) => endDateValidator(context, v),
+          hintText: context.history.editBooking_enter_end_date_hint,
           controller: _endDateController,
           prefixIcon: Icons.calendar_month,
         ),
@@ -91,12 +92,12 @@ class _EditActiveBookingDialogContentState
               );
             } else {
               return PrimaryButton(
-                text: "Confirm",
+                text: context.history.editBooking_confirm_button,
                 onTap: () {
                   if (_endDateUnchanged()) {
                     showSnackBar(
                       context: context,
-                      message: "You didn’t change anything",
+                      message: context.history.editBooking_no_changes_message,
                     );
                     return;
                   }

@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/core/style/colors.dart';
 import 'package:book_it/features/Home/presentation/viewModel/cubit/property_cubit.dart';
 import 'package:book_it/features/Home/presentation/widgets/property_container.dart';
@@ -32,7 +33,9 @@ class _MyPropertiesBodyState extends State<MyPropertiesBody> {
         }
         if (state is OwnerPropertiesLoaded) {
           if (state.properties.isEmpty) {
-            return const Center(child: Text("You have no properties yet."));
+            return Center(
+              child: Text(context.ownerloc.myProperties_noProperties),
+            );
           }
 
           return Padding(

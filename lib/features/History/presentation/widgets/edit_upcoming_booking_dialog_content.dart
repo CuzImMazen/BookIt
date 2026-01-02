@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/core/style/colors.dart';
 import 'package:book_it/core/utils/helpers.dart';
 import 'package:book_it/core/utils/validators.dart';
@@ -110,25 +111,25 @@ class _EditUpCommingBookingDialogContentState
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const LabelText(text: "Start Date"),
+          LabelText(text: context.history.editBooking_start_date),
           const SizedBox(height: 8),
           CustomTextField(
             readOnly: true,
             controller: _startDateController,
             prefixIcon: Icons.calendar_month,
             hintText: "Select start date",
-            validator: startDateValidator,
+            validator: (v) => startDateValidator(context, v),
             onTap: _pickStartDate,
           ),
           const SizedBox(height: 12),
-          const LabelText(text: "End Date"),
+          LabelText(text: context.history.editBooking_end_date),
           const SizedBox(height: 8),
           CustomTextField(
             readOnly: true,
             controller: _endDateController,
             prefixIcon: Icons.calendar_month,
-            hintText: "Select end date",
-            validator: endDateValidator,
+            hintText: context.history.editBooking_select_end_date_hint,
+            validator: (v) => endDateValidator(context, v),
             onTap: _pickEndDate,
           ),
           const SizedBox(height: 20),
@@ -143,14 +144,14 @@ class _EditUpCommingBookingDialogContentState
               }
 
               return PrimaryButton(
-                text: "Confirm",
+                text: context.history.editBooking_confirm_button,
                 onTap: () {
                   if (!_formKey.currentState!.validate()) return;
 
                   if (_datesUnchanged()) {
                     showSnackBar(
                       context: context,
-                      message: "You didn’t change anything",
+                      message: context.history.editBooking_no_changes_message,
                     );
                     return;
                   }

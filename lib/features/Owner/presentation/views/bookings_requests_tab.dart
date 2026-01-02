@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/features/Owner/presentation/ViewModel/cubit/owner_requests_cubit.dart';
 import 'package:book_it/features/Owner/presentation/ViewModel/cubit/owner_requests_state.dart';
 import 'package:book_it/features/Owner/presentation/widgets/booking_request_card.dart';
@@ -21,7 +22,7 @@ class BookingsRequestsTab extends StatelessWidget {
 
         if (state is OwnerRequestsLoaded) {
           if (state.bookings.isEmpty) {
-            return const Center(child: Text("No pending bookings"));
+            return Center(child: Text(context.ownerloc.no_pending_bookings));
           }
 
           return ListView.builder(

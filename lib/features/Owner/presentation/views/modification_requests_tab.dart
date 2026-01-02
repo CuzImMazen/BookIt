@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/features/Owner/presentation/ViewModel/cubit/owner_requests_cubit.dart';
 import 'package:book_it/features/Owner/presentation/ViewModel/cubit/owner_requests_state.dart';
 import 'package:book_it/features/Owner/presentation/widgets/modification_request_card.dart';
@@ -21,7 +22,9 @@ class ModificationRequestsTab extends StatelessWidget {
 
         if (state is OwnerRequestsLoaded) {
           if (state.modifications.isEmpty) {
-            return const Center(child: Text("No pending modifications"));
+            return Center(
+              child: Text(context.ownerloc.no_pending_modifications),
+            );
           }
 
           return ListView.builder(

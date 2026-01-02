@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/core/widgets/primary_text.dart';
 import 'package:book_it/features/Owner/presentation/ViewModel/cubit/owner_requests_cubit.dart';
 import 'package:book_it/features/Owner/presentation/ViewModel/cubit/owner_requests_state.dart';
@@ -45,11 +46,11 @@ class _PendingRequestsViewState extends State<PendingRequestsView> {
             surfaceTintColor: Colors.transparent,
             centerTitle: true,
             toolbarHeight: 80,
-            title: const PrimaryText(text: "Pending Requests"),
-            bottom: const TabBar(
+            title: PrimaryText(text: context.ownerloc.pendingRequests_title),
+            bottom: TabBar(
               tabs: [
-                Tab(text: "Bookings"),
-                Tab(text: "Modifications"),
+                Tab(text: context.ownerloc.pendingRequests_tab_bookings),
+                Tab(text: context.ownerloc.pendingRequests_tab_modifications),
               ],
             ),
           ),

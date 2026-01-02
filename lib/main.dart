@@ -21,11 +21,11 @@ void main() async {
     storageDirectory: HydratedStorageDirectory(directory.path),
   );
 
-  runApp(const MyApp());
+  runApp(const Bookit());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Bookit extends StatelessWidget {
+  const Bookit({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => DarkmodedCubit()),
         BlocProvider(create: (_) => LanguageCubit()),
       ],
-      child: const AppRoot(), // MaterialApp.router will go here
+      child: const AppRoot(),
     );
   }
 }

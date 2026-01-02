@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/core/style/colors.dart';
 import 'package:book_it/core/utils/helpers.dart';
 import 'package:book_it/core/utils/validators.dart';
@@ -87,7 +88,7 @@ class _CreatePropertyView2BodyState extends State<CreatePropertyView2Body> {
           context.read<PropertyCubit>().getProperties(const {});
           showSnackBar(
             context: context,
-            message: "Property created successfully",
+            message: context.ownerloc.property_created_successfully,
             color: Colors.green,
           );
           // context.go('/main/myproperties');
@@ -113,54 +114,67 @@ class _CreatePropertyView2BodyState extends State<CreatePropertyView2Body> {
                   children: [
                     _header(
                       theme,
-                      "The Basics",
-                      "Keep the title short and catchy",
+                      context.ownerloc.theBasics,
+                      context.ownerloc.theBasicsDesc,
                     ),
                     ModernTextField(
                       fieldKey: _titleKey,
                       controller: titleController,
-                      hint: "Fancy Beach House",
+                      hint: context.ownerloc.titleHint,
                       maxLength: 20,
-                      validator: (v) =>
-                          v == null || v.isEmpty ? "Title required" : null,
+                      validator: (v) => v == null || v.isEmpty
+                          ? context.ownerloc.titleRequired
+                          : null,
                     ),
-                    _header(theme, "Description", "What will guests love?"),
+                    _header(
+                      theme,
+                      context.ownerloc.description,
+                      context.ownerloc.descriptionDesc,
+                    ),
                     ModernTextField(
-                      hint: "Tell us about the view, the neighborhood...",
+                      hint: context.ownerloc.descriptionHint,
                       fieldKey: _descriptionKey,
                       controller: descriptionController,
                       maxLines: 4,
                       validator: (v) => v == null || v.isEmpty
-                          ? "Description required"
+                          ? context.ownerloc.descriptionRequired
                           : null,
                     ),
-                    _header(theme, "Numbers", "Price & area"),
+                    _header(
+                      theme,
+                      context.ownerloc.numbers,
+                      context.ownerloc.priceAndArea,
+                    ),
                     Row(
                       children: [
                         Expanded(
                           child: ModernTextField(
-                            hint: "Price",
+                            hint: context.ownerloc.priceHint,
                             fieldKey: _priceKey,
                             controller: priceController,
                             keyboard: TextInputType.number,
-                            validator: priceValidator,
+                            validator: (v) => priceValidator(context, v),
                             suffix: "\$",
                           ),
                         ),
                         const SizedBox(width: 16),
                         Expanded(
                           child: ModernTextField(
-                            hint: "Area",
+                            hint: context.ownerloc.areaHint,
                             fieldKey: _areaKey,
                             controller: areaController,
                             keyboard: TextInputType.number,
-                            validator: areaValidator,
+                            validator: (v) => areaValidator(context, v),
                             suffix: "m²",
                           ),
                         ),
                       ],
                     ),
-                    _header(theme, "Rooms", "How many?"),
+                    _header(
+                      theme,
+                      context.ownerloc.rooms,
+                      context.ownerloc.howMany,
+                    ),
                     RoomSelector(
                       bedrooms: bedrooms,
                       bathrooms: bathrooms,
@@ -174,7 +188,7 @@ class _CreatePropertyView2BodyState extends State<CreatePropertyView2Body> {
                 ),
               ),
             ),
-            // Bottom bar
+
             Container(
               padding: const EdgeInsets.fromLTRB(24, 16, 24, 32),
               decoration: BoxDecoration(
@@ -192,7 +206,10 @@ class _CreatePropertyView2BodyState extends State<CreatePropertyView2Body> {
               ),
               child: SafeArea(
                 top: false,
-                child: PrimaryButton(text: "Create Property", onTap: _onSubmit),
+                child: PrimaryButton(
+                  text: context.ownerloc.createProperty,
+                  onTap: _onSubmit,
+                ),
               ),
             ),
           ],

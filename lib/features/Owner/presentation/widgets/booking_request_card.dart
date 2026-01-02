@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/core/utils/helpers.dart';
 import 'package:book_it/features/Owner/data/models/pending_booking.dart';
 import 'package:book_it/features/Owner/presentation/ViewModel/cubit/owner_requests_cubit.dart';
@@ -103,7 +104,7 @@ class BookingRequestCard extends StatelessWidget {
                 child: Directionality(
                   textDirection: TextDirection.ltr,
                   child: Text(
-                    "\$${pendingBooking.property.price}/Night",
+                    "\$${pendingBooking.property.price}/${context.ownerloc.bookingRequest_perNight}",
                     style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,

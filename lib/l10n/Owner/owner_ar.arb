@@ -1,0 +1,125 @@
+{
+    "@@locale": "ar",
+     "myProperties_title": "عقاراتي",
+      "myProperties_noProperties": "ليس لديك أي عقارات بعد.",
+       "deleteProperty_title": "هل أنت متأكد؟",
+  "@deleteProperty_title": {
+    "description": "عنوان مربع تأكيد حذف العقار"
+  },
+  "deleteProperty_content": "هل أنت متأكد أنك تريد حذف هذا العقار؟",
+  "@deleteProperty_content": {
+    "description": "نص محتوى مربع تأكيد حذف العقار"
+  },
+  "deleteProperty_cancel": "إلغاء",
+  "@deleteProperty_cancel": {
+    "description": "زر إلغاء في مربع تأكيد حذف العقار"
+  },
+  "deleteProperty_delete": "حذف",
+  "@deleteProperty_delete": {
+    "description": "زر حذف في مربع تأكيد حذف العقار"
+    
+    
+  },
+  "pendingRequests_title": "الطلبات المعلقة",
+  "@pendingRequests_title": {
+    "description": "عنوان شاشة الطلبات المعلقة"
+  },
+  "pendingRequests_tab_bookings": "الحجوزات",
+  "@pendingRequests_tab_bookings": {
+    "description": "اسم تبويب الحجوزات"
+  },
+  "pendingRequests_tab_modifications": "التعديلات",
+  "@pendingRequests_tab_modifications": {
+    "description": "اسم تبويب التعديلات"
+  },
+  "accept": "قبول",
+  "reject": "رفض"
+  ,"bookingRequest_originalDate": "التاريخ الأصلي:",
+  "@bookingRequest_originalDate": {
+    "description": "علامة للتاريخ الأصلي في بطاقة تعديل الحجز"
+  },
+  "bookingRequest_adjustedDate": "التاريخ المعدل:",
+  "@bookingRequest_adjustedDate": {
+    "description": "علامة للتاريخ المعدل في بطاقة تعديل الحجز"
+  },
+  "bookingRequest_perNight": "لكل ليلة",
+  "@bookingRequest_perNight": {
+    "description": "لاحقة سعر العقار لكل ليلة"
+    
+  },
+  "createProperty_title": "إنشاء عقار",
+  "@createProperty_title": {
+    "description": "عنوان شاشة إنشاء عقار"
+  },
+  "createProperty_uploadImages": "رفع صور العقار:",
+  "@createProperty_uploadImages": {
+    "description": "تسمية قسم رفع الصور"
+  },
+  "createProperty_category_house": "منزل",
+  "@createProperty_category_house": {
+    "description": "فئة منزل"
+  },
+  "createProperty_category_apartment": "شقة",
+  "@createProperty_category_apartment": {
+    "description": "فئة شقة"
+  },
+  "createProperty_category_villa": "فيلا",
+  "@createProperty_category_villa": {
+    "description": "فئة فيلا"
+  },
+  "createProperty_continue": "استمرار",
+  "@createProperty_continue": {
+    "description": "نص زر الاستمرار"
+  },
+  "createProperty_snack_uploadImages": "يرجى رفع 3 صور على الأقل",
+  "@createProperty_snack_uploadImages": {
+    "description": "رسالة Snackbar عند عدم رفع الصور"
+  },
+  "createProperty_snack_selectCategory": "يرجى اختيار فئة",
+  "@createProperty_snack_selectCategory": {
+    "description": "رسالة Snackbar عند عدم اختيار الفئة"
+  },
+  "createProperty_snack_selectGovernorate": "يرجى اختيار المحافظة",
+  "@createProperty_snack_selectGovernorate": {
+    "description": "رسالة Snackbar عند عدم اختيار المحافظة"
+  },
+  "createProperty_snack_selectCity": "يرجى اختيار المدينة",
+  "@createProperty_snack_selectCity": {
+    "description": "رسالة Snackbar عند عدم اختيار المدينة"
+  },
+  "selectPropertyCategory": "اختر فئة العقار:",
+  "house": "منزل",
+  "apartment": "شقة",
+  "villa": "فيلا",
+   "selectLocation": "اختر الموقع:",
+  "selectGovernorate": "اختر المحافظة",
+  "selectCity": "اختر المدينة",
+  "theBasics": "الأساسيات",
+  "theBasicsDesc": "اجعل العنوان قصير وجذاب",
+  "description": "الوصف",
+  "descriptionDesc": "ما الذي سيحبه الضيوف؟",
+  "numbers": "الأرقام",
+  "priceAndArea": "السعر والمساحة",
+  "rooms": "الغرف",
+  "howMany": "كم عددها؟",
+  "titleHint": "منزل شاطئي فاخر",
+  "descriptionHint": "أخبرنا عن المنظر أو الحي...",
+  "priceHint": "السعر",
+  "areaHint": "المساحة",
+  "createProperty": "إنشاء عقار",
+  "titleRequired": "العنوان مطلوب",
+  "descriptionRequired": "الوصف مطلوب",
+  "requiredd": "مطلوب",
+  "mustBeNumber": "يجب أن يكون رقمًا",
+  "priceRange": "السعر: 25–250 $",
+  "areaRange": "المساحة: 100–1000 م²",
+  "bedrooms": "غرف النوم",
+  "bathrooms": "الحمامات",
+  "kitchens": "المطابخ",
+  "mainImageLabel": "الرئيسية",
+  "setMainImageLabel": "تعيين رئيسية",
+  "no_pending_bookings" : "لا توجد حجوزات معلقة"
+  ,
+  "no_pending_modifications" : "لا توجد تعديلات معلقة",
+  "property_created_successfully": "تم إنشاء العقار بنجاح"
+}

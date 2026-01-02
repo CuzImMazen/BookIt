@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/core/style/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class BookButton extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 15.0),
             child: Text(
-              "BookIt Now",
+              context.home.book_now,
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 20,

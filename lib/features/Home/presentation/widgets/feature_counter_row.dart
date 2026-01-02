@@ -1,9 +1,10 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:book_it/core/style/colors.dart';
 
 class FeatureCounterRow extends StatelessWidget {
   final String text;
-  final int value; // Never nullable
+  final int value;
   final void Function(int) onChanged;
 
   const FeatureCounterRow({
@@ -15,7 +16,7 @@ class FeatureCounterRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final displayValue = value == 0 ? "Any" : value.toString();
+    final displayValue = value == 0 ? context.home.any : value.toString();
 
     return Row(
       children: [

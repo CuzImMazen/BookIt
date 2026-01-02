@@ -142,6 +142,36 @@ abstract class SettingsLocalizations {
   /// In en, this message translates to:
   /// **'Please create an owner account and try again.'**
   String get error_create_owner_account;
+
+  /// No description provided for @choose_language.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Language'**
+  String get choose_language;
+
+  /// No description provided for @logout_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
+  String get logout_title;
+
+  /// No description provided for @logout_confirm_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to logout?'**
+  String get logout_confirm_text;
+
+  /// No description provided for @logout_cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get logout_cancel;
+
+  /// No description provided for @logout_button.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
+  String get logout_button;
 }
 
 class _SettingsLocalizationsDelegate extends LocalizationsDelegate<SettingsLocalizations> {

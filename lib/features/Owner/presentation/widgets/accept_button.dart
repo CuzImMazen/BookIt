@@ -1,3 +1,4 @@
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:flutter/material.dart';
 
 class AcceptButton extends StatelessWidget {
@@ -19,7 +20,7 @@ class AcceptButton extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 50),
           child: Text(
-            "Accept",
+            context.ownerloc.accept,
             style: TextStyle(
               fontSize: 16,
               color: Colors.white,

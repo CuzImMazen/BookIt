@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/core/utils/helpers.dart';
 import 'package:book_it/core/widgets/primary_button.dart';
 import 'package:book_it/features/Home/data/models/filter_model.dart';
@@ -35,8 +36,8 @@ class FilterViewBody extends StatelessWidget {
                     icon: const Icon(Icons.arrow_back),
                   ),
                   const Spacer(),
-                  const Text(
-                    "Filters",
+                  Text(
+                    context.home.filters_title,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                   ),
                   const Spacer(),
@@ -53,8 +54,9 @@ class FilterViewBody extends StatelessWidget {
                 selector: (state) => state.selectedGovernorate,
                 builder: (context, selectedGovernorate) {
                   return DropDownButtonRow(
-                    text: "Governorate :",
-                    hintText: "Select Governorate",
+                    isCity: false,
+                    text: context.home.filters_governorate,
+                    hintText: context.home.filters_select_governorate,
                     items: getGovernorates(),
                     currentValue: selectedGovernorate,
                     onChanged: (value) {
@@ -81,8 +83,10 @@ class FilterViewBody extends StatelessWidget {
                       : null;
 
                   return DropDownButtonRow(
-                    text: "Choose a City :",
-                    hintText: "Select City",
+                    governorate: state.selectedGovernorate,
+                    isCity: true,
+                    text: context.home.filters_choose_city,
+                    hintText: context.home.filters_select_city,
                     items: cities,
                     currentValue: currentCity,
                     onChanged: (value) =>
@@ -97,7 +101,7 @@ class FilterViewBody extends StatelessWidget {
                 selector: (state) => state.priceRange,
                 builder: (context, priceRange) {
                   return RangeSliderContainer(
-                    text: "Price :",
+                    text: context.home.filters_price,
                     min: 25,
                     max: 250,
                     divisions: 22,
@@ -116,7 +120,7 @@ class FilterViewBody extends StatelessWidget {
                 selector: (state) => state.areaRange,
                 builder: (context, areaRange) {
                   return RangeSliderContainer(
-                    text: "Area :",
+                    text: context.home.filters_area,
                     min: 100,
                     max: 1000,
                     divisions: 18,
@@ -135,7 +139,7 @@ class FilterViewBody extends StatelessWidget {
                 selector: (state) => state.numberOfBedrooms,
                 builder: (context, bedrooms) {
                   return FeatureCounterRow(
-                    text: "Num of Bedrooms :",
+                    text: context.home.filters_num_bedrooms,
                     value: bedrooms,
                     onChanged: (val) {
                       context.read<FilterCubit>().updateBedrooms(val);
@@ -150,7 +154,7 @@ class FilterViewBody extends StatelessWidget {
                 selector: (state) => state.numberOfBathrooms,
                 builder: (context, bathrooms) {
                   return FeatureCounterRow(
-                    text: "Num of Bathrooms :",
+                    text: context.home.filters_num_bathrooms,
                     value: bathrooms,
                     onChanged: (val) {
                       context.read<FilterCubit>().updateBathrooms(val);
@@ -165,7 +169,7 @@ class FilterViewBody extends StatelessWidget {
                 selector: (state) => state.numberOfKitchens,
                 builder: (context, kitchens) {
                   return FeatureCounterRow(
-                    text: "Num of Kitchens :",
+                    text: context.home.filters_num_kitchens,
                     value: kitchens,
                     onChanged: (val) {
                       context.read<FilterCubit>().updateKitchens(val);
@@ -192,7 +196,7 @@ class FilterViewBody extends StatelessWidget {
 
               PrimaryButton(
                 wdith: 220,
-                text: "Apply Filter",
+                text: context.home.filters_apply_button,
                 onTap: () {
                   final filterState = context.read<FilterCubit>().state;
                   final queryParams = filterState.toQueryParameters();
