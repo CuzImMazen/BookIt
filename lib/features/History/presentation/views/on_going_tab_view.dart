@@ -24,20 +24,45 @@ class OnGoingTabView extends StatelessWidget {
           return Center(child: Text(state.errorOngoing!.localized(context)));
         }
         if (state.ongoing.isEmpty) {
-          return Center(
-            child: Text(context.history.history_no_ongoing_bookings),
+          return RefreshIndicator(
+            color: kPrimaryColor,
+            onRefresh: () async {
+              await context.read<BookingHistoryCubit>().fetchOngoingBookings();
+            },
+            child: ListView(
+              physics: const AlwaysScrollableScrollPhysics(),
+              children: [
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.7,
+                  child: Center(
+                    child: Text(
+                      context.history.history_no_ongoing_bookings,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           );
         }
+
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10),
-          child: ListView.separated(
-            itemBuilder: (context, index) {
-              final booking = state.ongoing[index];
-
-              return BookingsContainer(book: booking);
+          child: RefreshIndicator(
+            onRefresh: () async {
+              await context.read<BookingHistoryCubit>().fetchOngoingBookings();
             },
-            separatorBuilder: (context, index) => const SizedBox(height: 15),
-            itemCount: state.ongoing.length,
+
+            child: ListView.separated(
+              physics: const AlwaysScrollableScrollPhysics(),
+              itemBuilder: (context, index) {
+                final booking = state.ongoing[index];
+
+                return BookingsContainer(book: booking);
+              },
+              separatorBuilder: (context, index) => const SizedBox(height: 15),
+              itemCount: state.ongoing.length,
+            ),
           ),
         );
       },
