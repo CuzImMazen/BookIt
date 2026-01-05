@@ -396,8 +396,8 @@ Future<dynamic> showCantAccessOwnerFeatureDialog(BuildContext context) {
               Navigator.of(context).pop();
             },
             child: Center(
-              child: const Text(
-                "OK",
+              child: Text(
+                context.book.booking_success_ok,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),

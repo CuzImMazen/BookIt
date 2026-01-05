@@ -11,7 +11,7 @@ class GetStartedButton extends StatelessWidget {
       alignment: Alignment(0, 0.77),
       child: GestureDetector(
         onTap: () {
-          context.push('/signin');
+          context.go('/signin');
         },
         child: Container(
           height: 50,
