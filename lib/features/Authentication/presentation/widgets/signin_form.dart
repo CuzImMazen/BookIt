@@ -3,7 +3,6 @@ import 'package:book_it/core/extensions/localization_extension.dart';
 import 'package:book_it/core/style/colors.dart';
 import 'package:book_it/core/utils/helpers.dart';
 import 'package:book_it/core/utils/validators.dart';
-import 'package:book_it/core/widgets/back_button_row.dart';
 import 'package:book_it/features/Authentication/presentation/ViewModel/cubit/authentication_cubit.dart';
 import 'package:book_it/core/widgets/label_text.dart';
 import 'package:book_it/core/widgets/primary_button.dart';
@@ -76,15 +75,7 @@ class _SignInFormState extends State<SignInForm> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 60),
-                  if (state is! AuthenticationSignOutSuccess)
-                    BackButtonRow(
-                      onTap: () {
-                        if (state is! AuthenticationLoading) {
-                          FocusScope.of(context).unfocus();
-                          context.pop();
-                        }
-                      },
-                    ),
+
                   SizedBox(height: 50),
                   PrimaryText(text: context.auth.auth_welcomeBack),
                   SizedBox(height: 10),
