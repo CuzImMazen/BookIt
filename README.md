@@ -34,11 +34,28 @@ Dark mode support 🌙
 
 Localization: Arabic & English 🌐
 
+📐 Architecture & State Management
+
+Follows MVVM (Model-View-ViewModel) architecture
+
+Uses Cubit for state management
+
+Implements design patterns and layered separation:
+
+Data layer – API calls, database
+
+Repository layer – abstracts data sources and error handling 
+
+Cubit / ViewModel layer – manages state and business logic
+
+UI layer – presentation and user interface
+
+
 💻 Tech Stack :
 
 Frontend: Flutter
 
-Backend: Laravel (not included)
+Backend: Laravel (not included - not mine)
 
 Communication: REST API
 
