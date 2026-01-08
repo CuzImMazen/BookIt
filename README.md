@@ -1,16 +1,31 @@
-# book_it
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Book It – House Rental App
+� � � � �
+Book It is a Flutter mobile application for renting and managing houses. Users can browse properties, make bookings, rate and favorite properties. Property owners can list and manage their properties, and approve or modify booking requests.
+The app works with a Laravel backend (not included) to handle listings, users, and bookings.
+⚠️ Work in Progress: Some features may be incomplete or require backend setup for full functionality.
+🌟 Features
+🏠 Renter
+Create an account as a Renter (requires admin approval)
+Browse available properties
+Book properties (requires owner approval)
+Rate properties after stay
+Add properties to favorites
+Track booking status: Pending, Active, Upcoming, Canceled, Completed
+🏢 Owner
+Create an account as a Property Owner (requires admin approval)
+List, add, and delete properties
+View booking requests and modifications
+Approve or modify bookings
+⚙️ General
+Push notifications via Firebase Cloud Messaging (FCM)
+Dark mode support
+Localization: Arabic and English
+💻 Tech Stack
+Frontend: Flutter
+Backend: Laravel (not included)
+Communication: REST API
+Notifications: Firebase Cloud Messaging
+📚 Resources
+Flutter Documentation
+Flutter Codelab
+Flutter Cookbook
