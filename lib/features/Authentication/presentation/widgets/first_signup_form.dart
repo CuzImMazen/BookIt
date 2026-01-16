@@ -77,18 +77,20 @@ class _FirstSignupFormState extends State<FirstSignupForm> {
               const SizedBox(height: 40),
 
               CustomTextField(
+                isName: true,
                 hintText: context.auth.auth_enterFirstName,
                 prefixIcon: Icons.person,
 
-                validator: (value) => nameValidator(context, value),
+                validator: (value) => firstNameValidator(context, value),
                 controller: nameController,
               ),
               const SizedBox(height: 20),
               CustomTextField(
+                isName: true,
                 hintText: context.auth.auth_enterLastName,
                 prefixIcon: Icons.person,
 
-                validator: (value) => nameValidator(context, value),
+                validator: (value) => lastNameValidator(context, value),
                 controller: lastNameController,
               ),
 
