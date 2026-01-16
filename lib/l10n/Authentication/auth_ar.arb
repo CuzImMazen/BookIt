@@ -38,6 +38,8 @@
   "errPasswordEmpty": "يرجى إدخال كلمة المرور",
   "errPasswordLength": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
   "errNameEmpty": "يرجى إدخال الاسم",
+  "errFirstNameEmpty": "يرجى إدخال الاسم الأول",
+  "errLastNameEmpty": "يرجى إدخال اسم العائلة",
   "errNameTooLong": "هذا الاسم طويل جداً",
   "errConfirmPasswordEmpty": "يرجى تأكيد كلمة المرور",
   "errPasswordsNotMatch": "كلمات المرور غير متطابقة",

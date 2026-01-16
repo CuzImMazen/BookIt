@@ -323,6 +323,18 @@ abstract class AuthLocalizations {
   /// **'Please enter your name'**
   String get errNameEmpty;
 
+  /// No description provided for @errFirstNameEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your first name'**
+  String get errFirstNameEmpty;
+
+  /// No description provided for @errLastNameEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your last name'**
+  String get errLastNameEmpty;
+
   /// No description provided for @errNameTooLong.
   ///
   /// In en, this message translates to:

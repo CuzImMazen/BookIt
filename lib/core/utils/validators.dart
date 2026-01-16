@@ -37,6 +37,28 @@ String? nameValidator(BuildContext context, String? value) {
   return null;
 }
 
+String? firstNameValidator(BuildContext context, String? value) {
+  value = value?.trim();
+  if (value == null || value.isEmpty) {
+    return context.auth.errFirstNameEmpty;
+  }
+  if (value.length > 20) {
+    return context.auth.errNameTooLong;
+  }
+  return null;
+}
+
+String? lastNameValidator(BuildContext context, String? value) {
+  value = value?.trim();
+  if (value == null || value.isEmpty) {
+    return context.auth.errLastNameEmpty;
+  }
+  if (value.length > 20) {
+    return context.auth.errNameTooLong;
+  }
+  return null;
+}
+
 String? confirmPasswordValidator(
   BuildContext context,
   String? value,

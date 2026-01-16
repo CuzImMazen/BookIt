@@ -123,6 +123,12 @@ class AuthLocalizationsAr extends AuthLocalizations {
   String get errNameEmpty => 'يرجى إدخال الاسم';
 
   @override
+  String get errFirstNameEmpty => 'يرجى إدخال الاسم الأول';
+
+  @override
+  String get errLastNameEmpty => 'يرجى إدخال اسم العائلة';
+
+  @override
   String get errNameTooLong => 'هذا الاسم طويل جداً';
 
   @override
