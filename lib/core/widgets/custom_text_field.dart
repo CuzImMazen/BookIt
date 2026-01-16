@@ -11,6 +11,7 @@ class CustomTextField extends StatefulWidget {
     required this.validator,
     required this.controller,
     this.isNumber = false,
+    this.isName = false,
     this.readOnly = false,
     this.onTap,
   });
@@ -21,6 +22,7 @@ class CustomTextField extends StatefulWidget {
   final String? Function(String?)? validator;
   final TextEditingController controller;
   final bool isNumber;
+  final bool isName;
   final bool readOnly;
   final void Function()? onTap;
   @override
@@ -75,6 +77,12 @@ class _AuthTextFieldState extends State<CustomTextField> {
       keyboardType: widget.isNumber ? TextInputType.phone : null,
       inputFormatters: widget.isNumber
           ? [FilteringTextInputFormatter.digitsOnly]
+          : widget.isName
+          ? [
+              FilteringTextInputFormatter.allow(
+                RegExp(r'[a-zA-Z\u0621-\u064A\s]'),
+              ),
+            ]
           : [],
       validator: widget.validator,
       obscureText: widget.isPassword ? _obscureText : false,

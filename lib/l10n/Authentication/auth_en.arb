@@ -38,6 +38,8 @@
   "errPasswordEmpty": "Please enter your password",
   "errPasswordLength": "Password must be at least 8 characters",
   "errNameEmpty": "Please enter your name",
+  "errFirstNameEmpty": "Please enter your first name",
+  "errLastNameEmpty": "Please enter your last name",
   "errNameTooLong": "That name is too long",
   "errConfirmPasswordEmpty": "Please confirm your password",
   "errPasswordsNotMatch": "Passwords do not match",

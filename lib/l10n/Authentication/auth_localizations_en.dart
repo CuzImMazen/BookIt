@@ -123,6 +123,12 @@ class AuthLocalizationsEn extends AuthLocalizations {
   String get errNameEmpty => 'Please enter your name';
 
   @override
+  String get errFirstNameEmpty => 'Please enter your first name';
+
+  @override
+  String get errLastNameEmpty => 'Please enter your last name';
+
+  @override
   String get errNameTooLong => 'That name is too long';
 
   @override
