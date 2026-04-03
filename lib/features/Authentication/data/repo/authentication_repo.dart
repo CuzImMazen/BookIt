@@ -4,6 +4,7 @@ import 'package:book_it/core/storage/token/token_storage.dart';
 import 'package:book_it/features/Authentication/data/models/user_model.dart';
 import 'package:book_it/features/Authentication/data/services/authentication_service.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 
 enum AuthError {
   phoneAlreadyRegistered,
@@ -68,6 +69,9 @@ class AuthenticationRepo {
         fcmToken: fcmToken,
       );
 
+      debugPrint(response.data.toString());
+      debugPrint(response.statusCode.toString());
+
       if (response.statusCode == 200 || response.statusCode == 201) {
         final token = response.data['token'];
         final userData = response.data['user'];
@@ -81,6 +85,7 @@ class AuthenticationRepo {
 
       return (null, AuthError.unknown);
     } on DioException catch (e) {
+      debugPrint(e.toString());
       return (null, _mapDioErrorToAuthError(e));
     } catch (_) {
       return (null, AuthError.unknown);

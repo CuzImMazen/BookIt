@@ -83,6 +83,7 @@ class PropertyModel {
           : null,
     );
   }
+
   PropertyModel copyWith({
     bool? isFavorite,
     double? userRating,
